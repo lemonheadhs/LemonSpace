@@ -50,6 +50,11 @@ build/
 [Bb]in/
 [Oo]bj/
 
+Lemon.LearnMVC/
+Lemon.LearnMyBatis/
+Lemon.LearnWF/
+Lemon.TestConsole/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
