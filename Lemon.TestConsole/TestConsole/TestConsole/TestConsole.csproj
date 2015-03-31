@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF84FB0B-AB95-4B02-9408-F98F6522C076}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestConsole</RootNamespace>
+    <AssemblyName>TestConsole</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resource\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FromJeffreyZhao\CodeTimer\CodeTimer.cs" />
+    <Compile Include="Test\ADONETStudy.cs" />
+    <Compile Include="Test\AlgorithmsStudy.cs" />
+    <Compile Include="Test\ArrayTest.cs" />
+    <Compile Include="Test\CharAdd.cs" />
+    <Compile Include="Test\CodeTest.cs" />
+    <Compile Include="Test\DelegateStudy.cs" />
+    <Compile Include="Test\DictionaryStudy.cs" />
+    <Compile Include="Test\DynamicObjectStudy.cs" />
+    <Compile Include="Test\EnumStudy.cs" />
+    <Compile Include="Test\EventStudy.cs" />
+    <Compile Include="Test\ExpandoObjectStudy.cs" />
+    <Compile Include="Test\ExpressionTreeStudy.cs" />
+    <Compile Include="Test\LambdaStudy.cs" />
+    <Compile Include="Test\LinqStudy.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\MySQLStudy.cs" />
+    <Compile Include="Test\ParallelProgramStudy.cs" />
+    <Compile Include="Test\ReflectionCreate.cs" />
+    <Compile Include="Test\ReflectionGetValue.cs" />
+    <Compile Include="Test\ReflectionSetValue.cs" />
+    <Compile Include="Test\ReflectionStudy.cs" />
+    <Compile Include="Test\SqlWhere\Common\ObjectProbe.cs" />
+    <Compile Include="Test\SqlWhere\Common\Tokenizer.cs" />
+    <Compile Include="Test\SqlWhere\Enum\PartTypeEnum.cs" />
+    <Compile Include="Test\SqlWhere\IExpression.cs" />
+    <Compile Include="Test\SqlWhere\IWhere.cs" />
+    <Compile Include="Test\SqlWhere\ExpressionBase.cs" />
+    <Compile Include="Test\SqlWhere\Part\IPart.cs" />
+    <Compile Include="Test\SqlWhere\Part\SqlPart.cs" />
+    <Compile Include="Test\SqlWhere\Part\ExpressionCollection.cs" />
+    <Compile Include="Test\SqlWhere\Process\Process.cs" />
+    <Compile Include="Test\SqlWhere\Process\RegisterHandlers.cs" />
+    <Compile Include="Test\SqlWhere\Process\SqlPartHandler\IsNotNull.cs" />
+    <Compile Include="Test\SqlWhere\Process\SqlPartHandler\SqlPartHandler.cs" />
+    <Compile Include="Test\SqlWhere\SqlContext.cs" />
+    <Compile Include="Test\SqlWhere\SqlWhere.cs" />
+    <Compile Include="Test\SqlWhere\SubExp.cs" />
+    <Compile Include="Test\StringStudy.cs" />
+    <Compile Include="Test\StringTokenizerStudy.cs" />
+    <Compile Include="Test\StringTokenizerStudy1.cs" />
+    <Compile Include="Test\TransformStudy.cs" />
+    <Compile Include="Test\XlsOperationStudy.cs" />
+    <Compile Include="Test\XmlStudy.cs" />
+    <Compile Include="Test\YieldStudy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\Account.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resource\MySql.Data.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resource\SqlMap.config" />
+    <None Include="Resource\SqlMap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resource\SqlMapConfig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
