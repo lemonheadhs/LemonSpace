@@ -85,7 +85,9 @@ namespace TestConsole
             //YieldStudy.DoTest1();
 
             //ExpandoObjectStudy.DoTest();
-            ExpandoObjectStudy.DoTest1();
+            //ExpandoObjectStudy.DoTest1();
+
+            DynamicObjectStudy.DoTest();
 
         }
     }
