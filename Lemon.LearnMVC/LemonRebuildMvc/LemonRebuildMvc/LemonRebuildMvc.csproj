@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Framework\URLMapping\IRouteHandler.cs" />
+    <Compile Include="Framework\URLMapping\RequestContext.cs" />
     <Compile Include="Framework\URLMapping\Route.cs" />
     <Compile Include="Framework\URLMapping\RouteBase.cs" />
     <Compile Include="Framework\URLMapping\RouteCollection.cs" />
