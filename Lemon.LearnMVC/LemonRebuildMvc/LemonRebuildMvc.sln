@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonRebuildMvc", "LemonRebuildMvc\LemonRebuildMvc.csproj", "{58035D70-CC99-44C1-9ED0-CA214E676A7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58035D70-CC99-44C1-9ED0-CA214E676A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58035D70-CC99-44C1-9ED0-CA214E676A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58035D70-CC99-44C1-9ED0-CA214E676A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58035D70-CC99-44C1-9ED0-CA214E676A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
