@@ -9,6 +9,7 @@ using Microsoft.Office.Tools.Excel;
 using Microsoft.VisualStudio.Tools.Applications.Runtime;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
+using System.Diagnostics;
 
 namespace ExcelWorkbook2
 {
@@ -16,6 +17,12 @@ namespace ExcelWorkbook2
     {
         private void Sheet2_Startup(object sender, System.EventArgs e)
         {
+            list1.Change += (tr, cr) => 
+            { 
+                Trace.WriteLine("lemon");
+                Trace.WriteLine(tr.Address);
+                Trace.WriteLine(cr.ToString());
+            };
         }
 
         private void Sheet2_Shutdown(object sender, System.EventArgs e)
@@ -30,11 +37,18 @@ namespace ExcelWorkbook2
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new System.EventHandler(Sheet2_Startup);
-            this.Shutdown += new System.EventHandler(Sheet2_Shutdown);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Startup += new System.EventHandler(this.Sheet2_Startup);
+            this.Shutdown += new System.EventHandler(this.Sheet2_Shutdown);
+
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

@@ -44,7 +44,7 @@ namespace ExcelWorkbook2
             var subNodesData = ChartItemData.TestFamily.Where(n => n.ParentName.Equals(nd.GetInnerText()));
             foreach (var sNdData in subNodesData)
             {
-                var sNd = nd.AddNode(MsoSmartArtNodePosition.msoSmartArtNodeBelow, (MsoSmartArtNodeType)2);
+                var sNd = nd.AddNode(MsoSmartArtNodePosition.msoSmartArtNodeBelow, MsoSmartArtNodeType.msoSmartArtNodeTypeDefault);
                 sNd.SetInnerText(sNdData.Name);
                 RecurAddNode(sNd);
             }
