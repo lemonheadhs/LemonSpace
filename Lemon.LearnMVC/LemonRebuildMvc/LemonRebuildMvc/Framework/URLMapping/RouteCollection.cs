@@ -9,7 +9,15 @@ namespace LemonRebuildMvc.Framework.URLMapping
     {
         public RouteData GetRouteData(HttpContextBase context)
         {
-            throw new NotImplementedException();
+            foreach (var route in this.Values)
+            {
+                RouteData routeData = route.GetRouteData(context);
+                if (routeData != null)
+                {
+                    return routeData;
+                }
+            }
+            return null;
         }
     }
 }
