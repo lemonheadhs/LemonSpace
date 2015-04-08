@@ -13,7 +13,7 @@ namespace LemonRebuildMvc
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            RouteTable.Routes.Add("default", new Route());
+            RouteTable.Routes.Add("default", new Route { Url = "{controller}/{action}" });
         }
 
     }

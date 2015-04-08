@@ -71,15 +71,15 @@ namespace TestProject1
         // TODO: 确保 UrlToTest 特性指定一个指向 ASP.NET 页的 URL(例如，
         // http://.../Default.aspx)。这对于在 Web 服务器上执行单元测试是必需的，
         //无论要测试页、Web 服务还是 WCF 服务都是如此。
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("D:\\GitHub\\LemonSpace\\Lemon.LearnMVC\\LemonRebuildMvc\\LemonRebuildMvc", "/")]
-        [UrlToTest("http://localhost:14314/")]
-        public void RouteTableConstructorTest()
-        {
-            RouteTable target = new RouteTable();
-            Assert.Inconclusive("TODO: 实现用来验证目标的代码");
-        }
+        //[TestMethod()]
+        //[HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("D:\\GitHub\\LemonSpace\\Lemon.LearnMVC\\LemonRebuildMvc\\LemonRebuildMvc", "/")]
+        //[UrlToTest("http://localhost:14314/")]
+        //public void RouteTableConstructorTest()
+        //{
+        //    RouteTable target = new RouteTable();
+        //    Assert.Inconclusive("TODO: 实现用来验证目标的代码");
+        //}
 
         /// <summary>
         ///Routes 的测试
@@ -87,19 +87,19 @@ namespace TestProject1
         // TODO: 确保 UrlToTest 特性指定一个指向 ASP.NET 页的 URL(例如，
         // http://.../Default.aspx)。这对于在 Web 服务器上执行单元测试是必需的，
         //无论要测试页、Web 服务还是 WCF 服务都是如此。
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("D:\\GitHub\\LemonSpace\\Lemon.LearnMVC\\LemonRebuildMvc\\LemonRebuildMvc", "/")]
-        [UrlToTest("http://localhost:14314/")]
-        [DeploymentItem("LemonRebuildMvc.dll")]
-        public void RoutesTest()
-        {
-            RouteCollection expected = null; // TODO: 初始化为适当的值
-            RouteCollection actual;
-            RouteTable_Accessor.Routes = expected;
-            actual = RouteTable_Accessor.Routes;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("验证此测试方法的正确性。");
-        }
+        //[TestMethod()]
+        //[HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("D:\\GitHub\\LemonSpace\\Lemon.LearnMVC\\LemonRebuildMvc\\LemonRebuildMvc", "/")]
+        //[UrlToTest("http://localhost:14314/")]
+        //[DeploymentItem("LemonRebuildMvc.dll")]
+        //public void RoutesTest()
+        //{
+        //    RouteCollection expected = null; // TODO: 初始化为适当的值
+        //    RouteCollection actual;
+        //    RouteTable_Accessor.Routes = expected;
+        //    actual = RouteTable_Accessor.Routes;
+        //    Assert.AreEqual(expected, actual);
+        //    Assert.Inconclusive("验证此测试方法的正确性。");
+        //}
     }
 }

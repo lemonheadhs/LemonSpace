@@ -7,26 +7,39 @@ namespace LemonRebuildMvc.Framework.URLMapping
 {
     public class Route : RouteBase
     {
+        public IRouteHandler RouteHandler { get; set; }
         public string Url { get; set; }
+        public IDictionary<string, object> DataToken { get; set; }
+
+        public Route()
+        {
+            this.DataToken = new Dictionary<string, object>();
+            this.RouteHandler = new MvcRouteHandler();
+        }
 
         public override RouteData GetRouteData(HttpContextBase context)
         {
-            throw new NotImplementedException();
             IDictionary<string, object> variables;
+            RouteData routeData = null;
             if (this.Match(context.Request
-                .AppRelativeCurrentExecutionFilePath.Substring(2), out variables))
+                .AppRelativeCurrentExecutionFilePath.Substring(2), out variables)) //TODO:为什么我在测试的时候，模拟的httpcontext里面，AppRelativeCurrentExecutionFilePath属性会抛异常？
             {
-                RouteData routeData = new RouteData();
+                routeData = new RouteData();
                 foreach (var item in variables)
                 {
                     routeData.Values.Add(item.Key, item.Value);
                 }
+                foreach (var item in DataToken)
+                {
+                    routeData.DataTokens.Add(item.Key, item.Value);
+                }
+                routeData.RouteHandler = RouteHandler;
             }
+            return routeData;
         }
 
         private bool Match(string requestUrl, out IDictionary<string, object> variables)
         {
-            throw new NotImplementedException();
             variables = new Dictionary<string, object>();
             string[] strArray1 = requestUrl.Split('/');
             string[] strArray2 = this.Url.Split('/');
