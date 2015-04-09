@@ -59,6 +59,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LemonTestUtils\LemonWorkerRequest.cs" />
+    <Compile Include="LemonTestUtils\WebTestUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteTableTest.cs" />
     <Compile Include="UrlRoutingModuleTest.cs" />

@@ -22,8 +22,16 @@ namespace LemonRebuildMvc.Framework.URLMapping
             IDictionary<string, object> variables;
             RouteData routeData = null;
             if (this.Match(context.Request
-                .AppRelativeCurrentExecutionFilePath.Substring(2), out variables)) //TODO:为什么我在测试的时候，模拟的httpcontext里面，AppRelativeCurrentExecutionFilePath属性会抛异常？
+                .AppRelativeCurrentExecutionFilePath.Substring(2), out variables)) 
             {
+                //为什么我在测试的时候，模拟的httpcontext里面，AppRelativeCurrentExecutionFilePath属性会抛异常？
+                //  因为，我使用了SimpleWorkerRequest类来模拟初始化HttpContext，虽然我设置了 ".appPath",".appVPath"两个应用程序域预存值，
+                //使得swr类可以工作，但是HttpRequest类中也依赖这两个预存值，却没有正确初始化。
+                //这里的原因就在于，HttpRequest等类要获取appPath之类的信息时，会向HttpRuntime查询这类信息；
+                //HttpRuntime会在程序集加载的时候，查询应用程序域预存值，来初始化appPath之类的信息，但前提是，
+                // asp.net框架已经向应用程序域设置了这些预存值；而我没有模拟asp.net框架设置这些预存值，HttpRuntime没有正确初始化，导致在HttpRequest查询相应信息时报错
+                // 这样，在我增加了".appDomain"预存值后，HttpRuntime得以正确初始化，问题解决
+
                 routeData = new RouteData();
                 foreach (var item in variables)
                 {
