@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using LemonRebuildMvc.Framework.URLMapping;
+using LemonRebuildMvc.Framework.ControllerActivation;
 
 namespace LemonRebuildMvc
 {
@@ -14,6 +15,8 @@ namespace LemonRebuildMvc
         protected void Application_Start(object sender, EventArgs e)
         {
             RouteTable.Routes.Add("default", new Route { Url = "{controller}/{action}" });
+            //ControllerBuilder.Current.SetControllerFactory(n
+            ControllerBuilder.Current.DefaultNamespaces.Add("LemonRebuildMvc");
         }
 
     }

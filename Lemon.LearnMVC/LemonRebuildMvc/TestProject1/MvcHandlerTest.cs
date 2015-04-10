@@ -1,18 +1,20 @@
-﻿using LemonRebuildMvc.Framework.URLMapping;
+﻿using LemonRebuildMvc.Framework.ControllerActivation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
+using LemonRebuildMvc.Framework.URLMapping;
+using System.Web;
 
 namespace TestProject1
 {
     
     
     /// <summary>
-    ///这是 RouteTableTest 的测试类，旨在
-    ///包含所有 RouteTableTest 单元测试
+    ///这是 MvcHandlerTest 的测试类，旨在
+    ///包含所有 MvcHandlerTest 单元测试
     ///</summary>
     [TestClass()]
-    public class RouteTableTest
+    public class MvcHandlerTest
     {
 
 
@@ -66,34 +68,15 @@ namespace TestProject1
 
 
         /// <summary>
-        ///RouteTable 构造函数 的测试
+        ///ProcessRequest 的测试
         ///</summary>
-        //[TestMethod()]
-        //[HostType("ASP.NET")]
-        //[AspNetDevelopmentServerHost("D:\\GitHub\\LemonSpace\\Lemon.LearnMVC\\LemonRebuildMvc\\LemonRebuildMvc", "/")]
-        //[UrlToTest("http://localhost:14314/")]
-        //public void RouteTableConstructorTest()
-        //{
-        //    RouteTable target = new RouteTable();
-        //    Assert.Inconclusive("TODO: 实现用来验证目标的代码");
-        //}
-
-        /// <summary>
-        ///Routes 的测试
-        ///</summary>
-        //[TestMethod()]
-        //[HostType("ASP.NET")]
-        //[AspNetDevelopmentServerHost("D:\\GitHub\\LemonSpace\\Lemon.LearnMVC\\LemonRebuildMvc\\LemonRebuildMvc", "/")]
-        //[UrlToTest("http://localhost:14314/")]
-        //[DeploymentItem("LemonRebuildMvc.dll")]
-        //public void RoutesTest()
-        //{
-        //    RouteCollection expected = null; // TODO: 初始化为适当的值
-        //    RouteCollection actual;
-        //    RouteTable_Accessor.Routes = expected;
-        //    actual = RouteTable_Accessor.Routes;
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.Inconclusive("验证此测试方法的正确性。");
-        //}
+        public void ProcessRequestTest()
+        {
+            RequestContext requestContext = null; // TODO: 初始化为适当的值
+            MvcHandler target = new MvcHandler(requestContext); // TODO: 初始化为适当的值
+            HttpContext context = null; // TODO: 初始化为适当的值
+            target.ProcessRequest(context);
+            Assert.Inconclusive("无法验证不返回值的方法。");
+        }
     }
 }

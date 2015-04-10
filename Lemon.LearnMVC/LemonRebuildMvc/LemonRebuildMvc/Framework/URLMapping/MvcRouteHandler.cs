@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using LemonRebuildMvc.Framework.ControllerActivation;
 
 namespace LemonRebuildMvc.Framework.URLMapping
 {
@@ -9,7 +10,7 @@ namespace LemonRebuildMvc.Framework.URLMapping
     {
         public IHttpHandler GetHttpHandler(RequestContext requestContext)
         {
-            throw new NotImplementedException();
+            return new MvcHandler(requestContext);
         }
     }
 }

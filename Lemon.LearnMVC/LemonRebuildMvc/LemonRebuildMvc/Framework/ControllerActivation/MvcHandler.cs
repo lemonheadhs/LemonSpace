@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using LemonRebuildMvc.Framework.URLMapping;
 
-namespace LemonRebuildMvc.Framework.URLMapping
+namespace LemonRebuildMvc.Framework.ControllerActivation
 {
     public class MvcHandler : IHttpHandler
     {
@@ -20,7 +21,10 @@ namespace LemonRebuildMvc.Framework.URLMapping
 
         public void ProcessRequest(HttpContext context)
         {
-            throw new NotImplementedException();
+            string controllerName = RequestContext.RouteData.Controller;
+            IControllerFactory controllerFactory = ControllerBuilder.Current.GetControllerFactory();
+            IController controller = controllerFactory.CreateController(RequestContext, controllerName);
+            controller.Execute(this.RequestContext);
         }
     }
 }

@@ -87,8 +87,9 @@ namespace TestConsole
             //ExpandoObjectStudy.DoTest();
             //ExpandoObjectStudy.DoTest1();
 
-            DynamicObjectStudy.DoTest();
+            //DynamicObjectStudy.DoTest();
 
+            HashSetStudy.DoTest();
         }
     }
 }
