@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading;
 using System.IO;
 using System.Web;
+using System.Web.SessionState;
+using System.Reflection;
 
 namespace TestProject1.LemonTestUtils
 {
@@ -20,6 +22,18 @@ namespace TestProject1.LemonTestUtils
             TextWriter tw = new StringWriter();
             LemonWorkerRequest wr = new LemonWorkerRequest(requestUrl, queryString, tw);
             HttpContext.Current = new HttpContext(wr);
+        }
+
+        public static void PrepareSession()
+        {
+            Type type = typeof(SessionStateUtility);
+            MethodInfo method = type.GetMethod("CreateLegitStoreData", BindingFlags.NonPublic | BindingFlags.Static);
+            SessionStateStoreData item = method.Invoke(null, new object[] { HttpContext.Current, null, null, MAX_TIMEOUT }) as SessionStateStoreData;
+
+            HttpSessionStateContainer sessionContainner =
+                new HttpSessionStateContainer("_s_id", item.Items, item.StaticObjects, item.Timeout, false, HttpCookieMode.UseUri, SessionStateMode.InProc, false);
+            SessionStateUtility.AddHttpSessionStateToContext(HttpContext.Current, sessionContainner);
+
         }
     }
 }

@@ -62,6 +62,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\ControllerActivation\ControllerBase.cs" />
     <Compile Include="Framework\ControllerActivation\ControllerBuilder.cs" />
     <Compile Include="Framework\ControllerActivation\DefaultControllerFactory.cs" />
     <Compile Include="Framework\ControllerActivation\IController.cs" />

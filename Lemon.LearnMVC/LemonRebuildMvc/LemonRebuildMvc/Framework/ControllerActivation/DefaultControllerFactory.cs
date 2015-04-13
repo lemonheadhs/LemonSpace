@@ -14,7 +14,7 @@ namespace LemonRebuildMvc.Framework.ControllerActivation
         {
             foreach (Assembly assembly in BuildManager.GetReferencedAssemblies())
             {
-                foreach (Type type in assembly.GetTypes().Where(t => typeof(IController).IsAssignableFrom(type)))
+                foreach (Type type in assembly.GetTypes().Where(t => typeof(IController).IsAssignableFrom(t)))
                 {
                     controllerTypes.Add(type);
                 }
@@ -23,7 +23,13 @@ namespace LemonRebuildMvc.Framework.ControllerActivation
 
         public IController CreateController(URLMapping.RequestContext requestContext, string controllerName)
         {
-            throw new NotImplementedException();
+            string typeName = controllerName + "Controller";
+            Type controllerType = controllerTypes.FirstOrDefault(s => string.Compare(s.Name, controllerName, true) == 0);//名字相同，忽略大小写
+            if (null == controllerType)
+            {
+                return null;
+            }
+            return (IController)Activator.CreateInstance(controllerType);
         }
     }
 }
