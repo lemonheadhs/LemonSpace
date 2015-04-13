@@ -12,6 +12,8 @@ namespace TestProject1.LemonTestUtils
 {
     public class WebTestUtil
     {
+        const int MAX_TIMEOUT = 24 * 60;
+
         public static void PrepareHttpContext(string requestUrl, string queryString)
         {
             //设置应用程序域中的预设值，模拟asp.net框架行为

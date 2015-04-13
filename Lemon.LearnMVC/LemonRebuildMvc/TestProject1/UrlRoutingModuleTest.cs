@@ -82,7 +82,7 @@ namespace TestProject1
 
             SimulateAppStart();
 
-            UrlRoutingModule_Accessor target = new UrlRoutingModule_Accessor(); 
+            UrlRoutingModule target = new UrlRoutingModule(); 
             object sender = null; 
             EventArgs e = null; 
             target.OnPostResolveRequestCache(sender, e);

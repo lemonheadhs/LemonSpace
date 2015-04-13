@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonRebuildMvc2013", "LemonRebuildMvc\LemonRebuildMvc2013.csproj", "{320B4DD3-BB58-4DAC-8CDC-CA03F0AA2EAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject12013", "TestProject1\TestProject12013.csproj", "{DB449F96-48EA-472D-90AA-AEFC6903C7E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{320B4DD3-BB58-4DAC-8CDC-CA03F0AA2EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{320B4DD3-BB58-4DAC-8CDC-CA03F0AA2EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{320B4DD3-BB58-4DAC-8CDC-CA03F0AA2EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB449F96-48EA-472D-90AA-AEFC6903C7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB449F96-48EA-472D-90AA-AEFC6903C7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB449F96-48EA-472D-90AA-AEFC6903C7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB449F96-48EA-472D-90AA-AEFC6903C7E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -69,7 +69,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\ControllerActivation\ControllerBase.cs" />
+    <Compile Include="Framework\ControllerActivation\ControllerBuilder.cs" />
+    <Compile Include="Framework\ControllerActivation\DefaultControllerFactory.cs" />
+    <Compile Include="Framework\ControllerActivation\IController.cs" />
+    <Compile Include="Framework\ControllerActivation\IControllerFactory.cs" />
+    <Compile Include="Framework\ControllerActivation\MvcHandler.cs" />
     <Compile Include="Framework\URLMapping\IRouteHandler.cs" />
+    <Compile Include="Framework\URLMapping\MvcRouteHandler.cs" />
     <Compile Include="Framework\URLMapping\RequestContext.cs" />
     <Compile Include="Framework\URLMapping\Route.cs" />
     <Compile Include="Framework\URLMapping\RouteBase.cs" />
