@@ -62,6 +62,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\ActionInvoke\ActionResult.cs" />
+    <Compile Include="Framework\ActionInvoke\ControllerActionInvoker.cs" />
+    <Compile Include="Framework\ActionInvoke\ControllerContext.cs" />
+    <Compile Include="Framework\ActionInvoke\IActionInvoker.cs" />
+    <Compile Include="Framework\ActionInvoke\RawContentResult.cs" />
     <Compile Include="Framework\ControllerActivation\ControllerBase.cs" />
     <Compile Include="Framework\ControllerActivation\ControllerBuilder.cs" />
     <Compile Include="Framework\ControllerActivation\DefaultControllerFactory.cs" />
@@ -82,7 +87,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Framework\ModelBinding\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

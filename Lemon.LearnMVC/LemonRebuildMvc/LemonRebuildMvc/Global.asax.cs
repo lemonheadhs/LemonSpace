@@ -15,7 +15,7 @@ namespace LemonRebuildMvc
         protected void Application_Start(object sender, EventArgs e)
         {
             RouteTable.Routes.Add("default", new Route { Url = "{controller}/{action}" });
-            //ControllerBuilder.Current.SetControllerFactory(n
+            ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory());
             ControllerBuilder.Current.DefaultNamespaces.Add("LemonRebuildMvc");
         }
 

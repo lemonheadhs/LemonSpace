@@ -59,6 +59,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultControllerFactoryTest.cs" />
     <Compile Include="LemonTestUtils\LemonWorkerRequest.cs" />
     <Compile Include="LemonTestUtils\WebTestUtil.cs" />
     <Compile Include="MvcHandlerTest.cs" />

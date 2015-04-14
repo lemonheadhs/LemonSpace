@@ -4,6 +4,8 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using LemonRebuildMvc.Framework.URLMapping;
 using System.Web;
+using System.Web.Compilation;
+using System.Reflection;
 
 namespace TestProject1
 {
@@ -70,13 +72,45 @@ namespace TestProject1
         /// <summary>
         ///ProcessRequest 的测试
         ///</summary>
+        [TestMethod]
         public void ProcessRequestTest()
         {
-            RequestContext requestContext = null; // TODO: 初始化为适当的值
-            MvcHandler target = new MvcHandler(requestContext); // TODO: 初始化为适当的值
-            HttpContext context = null; // TODO: 初始化为适当的值
+            LemonTestUtils.WebTestUtil.PrepareHttpContext("lemon/test", "");
+            SimulateAppStart();
+            
+            RequestContext requestContext = new RequestContext 
+            { 
+                HttpContext = new HttpContextWrapper(HttpContext.Current), 
+                RouteData = new RouteData() 
+            };
+            requestContext.RouteData.Values.Add("controller", "lemon");
+            requestContext.RouteData.Values.Add("action", "test");
+            MvcHandler target = new MvcHandler(requestContext);
+            HttpContext context = HttpContext.Current;
+                        
             target.ProcessRequest(context);
+
             Assert.Inconclusive("无法验证不返回值的方法。");
+        }
+
+        private static void SimulateAppStart()
+        {
+            //Type type = typeof(BuildManager);
+            //MethodInfo methodInfo = type.GetMethod("ExecutePreAppStart", BindingFlags.NonPublic | BindingFlags.Static);
+            //methodInfo.Invoke(null, null);
+
+            ControllerBuilder.Current.SetControllerFactory(new TestContrllerFactory());
+            ControllerBuilder.Current.DefaultNamespaces.Add("LemonRebuildMvc");
+        }
+
+
+    }
+
+    public class TestContrllerFactory : IControllerFactory
+    {
+        public IController CreateController(RequestContext requestContext, string controllerName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

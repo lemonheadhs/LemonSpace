@@ -1,25 +1,19 @@
-﻿using LemonRebuildMvc.Framework.URLMapping;
+﻿using LemonRebuildMvc.Framework.ControllerActivation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
-using System.Web;
-using System.IO;
-using System.Web.Hosting;
-using System.Threading;
-using System.Diagnostics;
-using TestProject1.LemonTestUtils;
-using System.Reflection;
+using LemonRebuildMvc.Framework.URLMapping;
 
 namespace TestProject1
 {
     
     
     /// <summary>
-    ///这是 UrlRoutingModuleTest 的测试类，旨在
-    ///包含所有 UrlRoutingModuleTest 单元测试
+    ///这是 DefaultControllerFactoryTest 的测试类，旨在
+    ///包含所有 DefaultControllerFactoryTest 单元测试
     ///</summary>
     [TestClass()]
-    public class UrlRoutingModuleTest
+    public class DefaultControllerFactoryTest
     {
 
 
@@ -73,34 +67,19 @@ namespace TestProject1
 
 
         /// <summary>
-        ///OnPostResolveRequestCache 的测试
+        ///CreateController 的测试
         ///</summary>
-        //无论要测试页、Web 服务还是 WCF 服务都是如此。
         [TestMethod()]
-        public void OnPostResolveRequestCacheTest()
+        public void CreateControllerTest()
         {
-            WebTestUtil.PrepareHttpContext("lemon/test", "");
-
-            SimulateAppStart();
-
-            UrlRoutingModule target = new UrlRoutingModule(); 
-            object sender = null; 
-            EventArgs e = null;
-            MethodInfo methodInfo = target.GetType().GetMethod("OnPostResolveRequestCache", BindingFlags.NonPublic | BindingFlags.Instance);
-            methodInfo.Invoke(target, new object[] { sender, e });
-            
-            
-            Assert.Inconclusive("无法验证不返回值的方法。");
+            DefaultControllerFactory target = new DefaultControllerFactory(); // TODO: 初始化为适当的值
+            RequestContext requestContext = null; // TODO: 初始化为适当的值
+            string controllerName = string.Empty; // TODO: 初始化为适当的值
+            IController expected = null; // TODO: 初始化为适当的值
+            IController actual;
+            actual = target.CreateController(requestContext, controllerName);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("验证此测试方法的正确性。");
         }
-
-        private void SimulateAppStart()
-        {
-            RouteTable.Routes.Add("default", new Route { Url = "{controller}/{action}" });
-
-        }
-
-        
-
-        
     }
 }
