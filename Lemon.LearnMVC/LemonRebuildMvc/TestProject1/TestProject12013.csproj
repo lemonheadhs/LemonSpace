@@ -6,8 +6,8 @@
     <ProjectGuid>{DB449F96-48EA-472D-90AA-AEFC6903C7E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestProject12013</RootNamespace>
-    <AssemblyName>TestProject12013</AssemblyName>
+    <RootNamespace>TestProject1</RootNamespace>
+    <AssemblyName>TestProject1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -52,11 +52,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DefaultControllerFactoryTest.cs" />
     <Compile Include="LemonTestUtils\LemonWorkerRequest.cs" />
     <Compile Include="LemonTestUtils\WebTestUtil.cs" />
     <Compile Include="MvcHandlerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteTableTest.cs" />
+    <Compile Include="ControllerActionInvokerTest.cs" />
     <Compile Include="UrlRoutingModuleTest.cs" />
   </ItemGroup>
   <ItemGroup>

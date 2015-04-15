@@ -6,6 +6,7 @@ using LemonRebuildMvc.Framework.URLMapping;
 using System.Web;
 using System.Web.Compilation;
 using System.Reflection;
+using TestProject1.LemonTestUtils;
 
 namespace TestProject1
 {
@@ -75,7 +76,7 @@ namespace TestProject1
         [TestMethod]
         public void ProcessRequestTest()
         {
-            LemonTestUtils.WebTestUtil.PrepareHttpContext("lemon/test", "");
+            WebTestUtil.PrepareHttpContext("lemon/test", "");
             SimulateAppStart();
             
             RequestContext requestContext = new RequestContext 

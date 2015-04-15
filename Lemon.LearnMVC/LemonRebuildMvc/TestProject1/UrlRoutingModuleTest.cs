@@ -75,7 +75,6 @@ namespace TestProject1
         /// <summary>
         ///OnPostResolveRequestCache 的测试
         ///</summary>
-        //无论要测试页、Web 服务还是 WCF 服务都是如此。
         [TestMethod()]
         public void OnPostResolveRequestCacheTest()
         {

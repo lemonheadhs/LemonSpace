@@ -8,6 +8,7 @@ namespace LemonRebuildMvc.Framework.ControllerActivation
 {
     public abstract class ControllerBase : IController
     {
+        // ActionInvoker 是把 Controller内部用来动态执行 Action的逻辑分离出来形成的类
         protected IActionInvoker ActionInvoker { get; set; }
 
         public ControllerBase()

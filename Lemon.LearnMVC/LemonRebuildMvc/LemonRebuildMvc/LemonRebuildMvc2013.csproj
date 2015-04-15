@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LemonRebuildMvc2013</RootNamespace>
-    <AssemblyName>LemonRebuildMvc2013</AssemblyName>
+    <RootNamespace>LemonRebuildMvc</RootNamespace>
+    <AssemblyName>LemonRebuildMvc</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -69,12 +69,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\ActionInvoke\ActionResult.cs" />
+    <Compile Include="Framework\ActionInvoke\ControllerActionInvoker.cs" />
+    <Compile Include="Framework\ActionInvoke\ControllerContext.cs" />
+    <Compile Include="Framework\ActionInvoke\IActionInvoker.cs" />
+    <Compile Include="Framework\ActionInvoke\RawContentResult.cs" />
     <Compile Include="Framework\ControllerActivation\ControllerBase.cs" />
     <Compile Include="Framework\ControllerActivation\ControllerBuilder.cs" />
     <Compile Include="Framework\ControllerActivation\DefaultControllerFactory.cs" />
     <Compile Include="Framework\ControllerActivation\IController.cs" />
     <Compile Include="Framework\ControllerActivation\IControllerFactory.cs" />
     <Compile Include="Framework\ControllerActivation\MvcHandler.cs" />
+    <Compile Include="Framework\ModelBinding\DefaultModelBinder.cs" />
+    <Compile Include="Framework\ModelBinding\IModelBinder.cs" />
     <Compile Include="Framework\URLMapping\IRouteHandler.cs" />
     <Compile Include="Framework\URLMapping\MvcRouteHandler.cs" />
     <Compile Include="Framework\URLMapping\RequestContext.cs" />
@@ -89,6 +96,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
