@@ -11,6 +11,11 @@ namespace LemonRebuildMvc.Framework.ModelBinding
         public object BindModel(ControllerContext controllerContext, string modelName, Type modelType)
         {
             throw new NotImplementedException();
+            if (modelType.IsValueType || typeof(string) == modelType)
+            {
+                return null;
+            }
+
         }
     }
 }
