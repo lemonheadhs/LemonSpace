@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web" />
@@ -53,6 +56,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DefaultControllerFactoryTest.cs" />
+    <Compile Include="Framework\ModelBinding\DefaultModelBinderTests.cs" />
     <Compile Include="LemonTestUtils\LemonWorkerRequest.cs" />
     <Compile Include="LemonTestUtils\WebTestUtil.cs" />
     <Compile Include="MvcHandlerTest.cs" />
@@ -62,6 +66,7 @@
     <Compile Include="UrlRoutingModuleTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="测试引用\LemonRebuildMvc.accessor" />
   </ItemGroup>
   <ItemGroup>
