@@ -24,7 +24,7 @@ namespace LemonRebuildMvc.Framework.ControllerActivation
         public IController CreateController(URLMapping.RequestContext requestContext, string controllerName)
         {
             string typeName = controllerName + "Controller";
-            Type controllerType = controllerTypes.FirstOrDefault(s => string.Compare(s.Name, controllerName, true) == 0);//名字相同，忽略大小写
+            Type controllerType = controllerTypes.FirstOrDefault(s => string.Compare(s.Name, typeName, true) == 0);//名字相同，忽略大小写
             if (null == controllerType)
             {
                 return null;

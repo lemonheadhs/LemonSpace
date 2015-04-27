@@ -24,7 +24,7 @@ namespace LemonRebuildMvc.Framework.ModelBinding
             object modelInstance = Activator.CreateInstance(modelType);
             foreach (PropertyInfo property in modelType.GetProperties())
             {
-                if (!property.CanWrite || !property.PropertyType.IsValueType || property.PropertyType != typeof(string))
+                if (!property.CanWrite || (!property.PropertyType.IsValueType && property.PropertyType != typeof(string)))
                 {
                     continue;
                 }
@@ -67,17 +67,24 @@ namespace LemonRebuildMvc.Framework.ModelBinding
 
             //数据来源3：RequestContext.RouteData.Values
             var routeDataValues = context.RequestContext.RouteData.Values;
-            if(routeDataValues.ContainsKey(modelName))
+            //if(routeDataValues.ContainsKey(modelName))  //这样会区分大小写
+            //{
+            //    value = Convert.ChangeType(routeDataValues[modelName], modelType);
+            //    return true;
+            //}
+            key = routeDataValues.Keys.FirstOrDefault(s => string.Compare(modelName, s, true) == 0);
+            if(key !=null)
             {
-                value = Convert.ChangeType(routeDataValues[modelName], modelType);
+                value = Convert.ChangeType(routeDataValues[key], modelType);
                 return true;
             }
 
             //数据来源4：RequestContext.RouteData.DataTokens
             var routeDataTokens = context.RequestContext.RouteData.DataTokens;
-            if(routeDataTokens.ContainsKey(modelName))
+            key = routeDataTokens.Keys.FirstOrDefault(s => string.Compare(modelName, s, true) == 0);
+            if(key!=null)
             {
-                value = Convert.ChangeType(routeDataTokens[modelName], modelType);
+                value = Convert.ChangeType(routeDataTokens[key], modelType);
                 return true;
             }
 

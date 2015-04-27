@@ -1,6 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LemonRebuildMvc.Framework.ActionInvoke;
+using System.Text;
+using System.IO;
+using Moq;
+using System.Web;
+using LemonRebuildMvc.Framework.URLMapping;
+using LemonRebuildMvc;
+using TestProject1.LemonTestUtils;
 
 namespace TestProject1
 {
@@ -32,11 +39,34 @@ namespace TestProject1
         public void InvokeActionTest()
         {
             ControllerActionInvoker target = new ControllerActionInvoker();
-            ControllerContext context = null;//TODO:
-            string actionName = "";//TODO:
+
+            string expected = "Controller:home, Action:index<br/>Foo:1, <br/>Bar:2, <br/>Baz:3.4";
+
+            StringBuilder sb = new StringBuilder();
+            TextWriter writer = new StringWriter(sb);
+
+            WebTestUtil.PrepareHttpContext("home/index", "foo=1&bar=2&baz=3.4");
+            WebTestUtil.ResponseSwitchWriter(writer);
+
+            RouteData routeData = new RouteData();
+            routeData.Values.Add("controller", "home");
+            routeData.Values.Add("action", "index");
+            var context = new ControllerContext
+            {
+                RequestContext = new RequestContext 
+                    { 
+                        HttpContext = new HttpContextWrapper(HttpContext.Current),
+                        RouteData = routeData
+                    },
+                Controller = new HomeController()
+            };
+            string actionName = "index";
             target.InvokeAction(context, actionName);
 
-            Assert.Inconclusive();
+            writer.Flush();
+
+            Assert.AreEqual(expected, sb.ToString());
+            
         }
     }
 }

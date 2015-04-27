@@ -56,6 +56,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DefaultControllerFactoryTest.cs" />
+    <Compile Include="Framework\ActionInvoke\RawContentResultTests.cs" />
     <Compile Include="Framework\ModelBinding\DefaultModelBinderTests.cs" />
     <Compile Include="LemonTestUtils\LemonWorkerRequest.cs" />
     <Compile Include="LemonTestUtils\WebTestUtil.cs" />

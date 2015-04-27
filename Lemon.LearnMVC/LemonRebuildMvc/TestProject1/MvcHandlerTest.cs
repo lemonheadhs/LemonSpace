@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Compilation;
 using System.Reflection;
 using TestProject1.LemonTestUtils;
+using LemonRebuildMvc;
+using Moq;
 
 namespace TestProject1
 {
@@ -19,7 +21,7 @@ namespace TestProject1
     [TestClass()]
     public class MvcHandlerTest
     {
-
+        public static string TestResultStr { get; set; }
 
         private TestContext testContextInstance;
 
@@ -76,7 +78,7 @@ namespace TestProject1
         [TestMethod]
         public void ProcessRequestTest()
         {
-            WebTestUtil.PrepareHttpContext("lemon/test", "");
+            WebTestUtil.PrepareHttpContext("lemon/test", "age=25");
             SimulateAppStart();
             
             RequestContext requestContext = new RequestContext 
@@ -88,10 +90,11 @@ namespace TestProject1
             requestContext.RouteData.Values.Add("action", "test");
             MvcHandler target = new MvcHandler(requestContext);
             HttpContext context = HttpContext.Current;
-                        
+
+            string expected = "/lemon/test?age=25";
             target.ProcessRequest(context);
 
-            Assert.Inconclusive("无法验证不返回值的方法。");
+            Assert.AreEqual(expected, MvcHandlerTest.TestResultStr);
         }
 
         private static void SimulateAppStart()
@@ -109,9 +112,16 @@ namespace TestProject1
 
     public class TestContrllerFactory : IControllerFactory
     {
+
         public IController CreateController(RequestContext requestContext, string controllerName)
         {
-            throw new NotImplementedException();
+            var mo = new Mock<IController>();
+            mo.Setup(foo => foo.Execute(It.IsNotNull<RequestContext>()))
+              .Callback<RequestContext>(context => 
+              {
+                  MvcHandlerTest.TestResultStr = context.HttpContext.Request.RawUrl;
+              });
+            return mo.Object;
         }
     }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LemonRebuildMvc.Framework.ModelBinding;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LemonRebuildMvc.Framework.ActionInvoke;
-using TestProject1.LemonTestUtils;
-using LemonRebuildMvc.Framework.URLMapping;
 using System.Web;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using LemonRebuildMvc.Framework.ModelBinding;
+using LemonRebuildMvc.Framework.ActionInvoke;
+using LemonRebuildMvc.Framework.URLMapping;
+using TestProject1.LemonTestUtils;
 
 namespace TestProject1
 {
@@ -43,11 +44,13 @@ namespace TestProject1
             RouteData routeData = new RouteData();
             routeData.Values.Add("orderTime", "2015-04-22");
             routeData.DataTokens.Add("restraurant", "大排挡");
-            HttpContext.Current.Request.Form.Add("weight", "20");//TODO:还要再mock一下 Form对象
+            WebTestUtil.SwitchFormToWritable(HttpContext.Current.Request.Form);
+            HttpContext.Current.Request.Form.Add("weight", "20");
             ControllerContext controllerContext = new ControllerContext();
             controllerContext.RequestContext = new RequestContext();
             controllerContext.RequestContext.HttpContext = new HttpContextWrapper(HttpContext.Current);
             controllerContext.RequestContext.RouteData = routeData;
+
             string modelName = "AFeast";
             Type modelType = typeof(SeaFood);
 

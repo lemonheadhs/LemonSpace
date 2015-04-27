@@ -70,16 +70,18 @@ namespace TestProject1
         ///CreateController 的测试
         ///</summary>
         [TestMethod()]
+        //[UrlToTest("http://localhost:49724/test.aspx")]
+        //[HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("D:\\GitHub\\LemonSpace\\Lemon.LearnMVC\\LemonRebuildMvc\\LemonRebuildMvc", "/")]
         public void CreateControllerTest()
         {
-            DefaultControllerFactory target = new DefaultControllerFactory(); // TODO: 初始化为适当的值
-            RequestContext requestContext = null; // TODO: 初始化为适当的值
-            string controllerName = string.Empty; // TODO: 初始化为适当的值
-            IController expected = null; // TODO: 初始化为适当的值
+            DefaultControllerFactory target = new DefaultControllerFactory(); 
+            RequestContext requestContext = null;
+            string controllerName = "home";
+            string expected = "HomeController";
             IController actual;
             actual = target.CreateController(requestContext, controllerName);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("验证此测试方法的正确性。");
+            Assert.AreEqual(expected, actual.GetType().Name);
         }
     }
 }
