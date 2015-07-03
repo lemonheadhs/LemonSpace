@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>管控平台</title>
+<script src="../Resource/metro/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="../Resource/metro/js/comm.js" type="text/javascript"></script>
+<script src="../Resource/metro/js/jTabView1.0.js" type="text/javascript"></script>
+<script src="../other/othercomm.js" type="text/javascript"></script>
+<link href="../AppThemes/metro/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script src="../Resource/metro/js/jquery.blockUI.js" type="text/javascript"></script>
+<link href="../AppThemes/metro/animate.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../AppThemes/metro/metro.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../AppThemes/metro/metrotab.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+  $(function(){
+	$(".cookietab").jTabView(
+	{
+	tab: ".cookietabtitle",
+	con: ".con",
+	curr:"curr",
+	retain:1,//是否防刷新
+	auto:0,//是否自动
+	accordion:1//是否折叠
+	}
+	);
+  });
+  </script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".listsct").click(
+  function toggleoperate() {
+    $(".list").toggle(300);
+  }
+);
+
+
+ });
+</script>
+</head>
+
+<body>
+
+<div class="contentpage">
+
+	<div class="contentpagetitle fadeInDown" style="">
+发文拟办
+        <div class="titlebtnbox">
+         <a href="发文领导会签.html" ><img src="../Resource/metro/images/ok.png" alt=""/><span>提交</span></a>
+  <a href="javascript:void(0)" ><img src="../Resource/metro/images/iconf.png" alt=""/><span>保存</span></a><a href="javascript:void(0)" ><img src="../Resource/metro/images/iconi.png" alt=""/><span>查看流程</span></a>
+  <a href="javascript:void(0)" ><img src="../Resource/metro/images/cancel.png" alt=""/><span>取消</span></a>
+</div>
+</div>
+		
+	
+	<div class="contentpagebox fadeInUp" >
+<div class="cookietab">
+		<div class="cookietabtitlebox">
+			<a class="curr cookietabtitle" href="#">表单信息</a><a class="cookietabtitle" href="#">正文编辑</a></div>
+		<div class="con curr">
+			<div class="metrotitle">基本信息 </div><table class="writetbl">
+	    <tr>
+	      <th >标题：</th>
+	      <td colspan="3"><input id="list" class="hasvalue" name="list" style="width: 100%" type="text"></td>
+        </tr>
+        <tr>
+	      <th >主送：</th>
+	      <td colspan="3"><input id="list" class="hasvalue" name="list" style="width: 100%" type="text"></td>
+        </tr>
+        <tr>
+	      <th >抄送：</th>
+	      <td colspan="3"><input id="list" class="hasvalue" name="list" style="width: 100%" type="text"></td>
+        </tr>
+        <tr>
+	      <th >会签部门：</th>
+	      <td colspan="3"><input id="list" class="hasvalue" name="list" style="width: 100%" type="text"></td>
+        </tr>
+         <tr>
+	      <th>密级：</th>
+	      <td style="width:280px">
+	        <select name="Select2">
+				<option>普通</option><option>秘密</option><option>机密</option><option>绝密</option>
+			</select></td>
+            <th style="width:80px">紧急程度：</th>
+	      <td ><select name="Select1">
+				<option>普通</option><option>急</option><option>紧急</option><option>特急</option>
+			</select></td>
+	      
+        </tr>
+        
+        <tr>
+        
+         <th>拟稿人：</th>
+	      <td><b style="border-bottom:1px solid #ccc; width:100%; display:inline-block">XXX</b>
+	       </td>
+             <th>拟稿时间：</th>
+	      <td><b style="border-bottom:1px solid #ccc; width:100%;display:inline-block">2015-4-4 10:20</b>
+	       </td>
+        </tr>
+        
+          <tr>
+	      <th>联系电话：</th>
+	      <td >
+	        <input id="list15" class="hasvalue" name="list15" style="width: 100%" type="text"></td>
+	      <th>办理时限：</th>
+	      <td>
+	        <input id="list16" class="hasvalue" name="list16" style="width: 100%" type="text"></td>
+        </tr>
+        
+          <tr>
+	      <th>文种：</th>
+	      <td > <select name="Select1">
+				<option>决议</option><option>决定</option><option>意见</option><option>通知</option><option>通报</option><option>报告</option>
+                <option>请示</option><option>批复</option><option>函</option><option>纪要</option>
+			</select></td>
+	      <th>发文代字：</th>
+	      <td>
+	        <select name="Select3">
+				<option>大唐科研院综</option><option>大唐科研院规</option><option>大唐科研院人</option><option>大唐科研院科</option>
+                <option>大唐科研院任</option><option>大唐科研院制</option><option>大唐科研院函</option>
+			</select>
+	      </td>
+        </tr>
+         <tr>
+	      
+	      <th>关联收文：</th>
+	      <td colspan="3">
+	        <input id="list16" class="hasvalue" name="list16" style="width: 100%" type="text"></td>
+        </tr>
+	    <tr>
+	      <th style="width:80px;">备注：</th>
+	      <td colspan="3">
+
+			  <textarea cols="20" name="TextArea1" rows="5"></textarea></td>
+        </tr>
+	    </table>	
+
+		
+
+<div class="metrotitle">办理信息 </div><div class="metrobox">
+<table class="gridview">
+<tr><th style="width:40px;">序号</th><th style="width:100px;">意见类别</th><th style="width:100px;">
+	办理单位/部门</th><th style="width:100px;">办理人</th><th>办理意见</th><th style="width:100px;">
+	办理时间</th></tr>
+<tr><td>&nbsp; </td><td></td><td></td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+<tr><td>&nbsp; </td><td></td><td></td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+<tr><td>&nbsp; </td><td></td><td></td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+<tr><td>&nbsp; </td><td></td><td></td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+<tr><td>&nbsp; </td><td></td><td></td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+</table>	</div>	 	
+
+<div class="metrotitle">办理意见 </div>
+<div class="metrobox">
+      <table class="writetbl">
+	      <tr>
+	      <th style="width:80px">办理意见：</th>
+	      <td colspan="3">
+		 	
+<select name="Select3">
+		<option>已阅</option><option>已办</option>
+		</select>
+			  <textarea cols="20" name="TextArea1" rows="6"></textarea></td>
+        </tr>
+          <tr>
+       
+	      <th style="width:80px">任务责任人：</th>
+	      <td colspan="3">
+		  <input id="list10" class="hasvalue" name="list10" style="width: 100%" type="text"></td>
+          </tr>
+	    	  <tr>
+       
+	      <th style="width:80px">任务督办人：</th>
+	      <td  style="width:280px;">
+		  <input id="list10" class="hasvalue" name="list10" style="width: 100%" type="text"></td>
+           <th style="width:120px">计划完成时间：</th>
+	      <td >
+	        <input id="list6" class="hasvalue" name="list6" style="width: 100%" type="text">
+	      </td>
+        </tr>  
+	    </table>
+      </div>
+   
+
+      
+      
+       </div>
+		<div class="con">
+		<iframe width="100%;" height="500px" src="form.html" frameborder="0"></iframe>	
+		</div>
+	</div>
+
+	</div>
+		<div class="con">
+		<iframe width="100%;" height="700px" src="form.html" frameborder="0"></iframe>	
+		</div>
+	</div>
+
+    </div>
+	
+</div>
+</body>
+
+</html>
