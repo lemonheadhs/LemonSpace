@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/TinyLibrary.Services.DataObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TinyLibrary.Services.DataObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3722/TinyLibraryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfBookData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookData" nillable="true" type="tns:BookData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBookData" nillable="true" type="tns:ArrayOfBookData" />
+  <xs:complexType name="BookData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ISBN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LendDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LendTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Pages" type="xs:int" />
+      <xs:element minOccurs="0" name="PubDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Publisher" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookData" nillable="true" type="tns:BookData" />
+  <xs:complexType name="ReaderData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReaderData" nillable="true" type="tns:ReaderData" />
+  <xs:complexType name="ArrayOfRegistrationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegistrationData" nillable="true" type="tns:RegistrationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegistrationData" nillable="true" type="tns:ArrayOfRegistrationData" />
+  <xs:complexType name="RegistrationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="BookISBN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReaderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReaderUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistrationData" nillable="true" type="tns:RegistrationData" />
+</xs:schema>

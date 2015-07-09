@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="7e5c5eaa-9e45-48fd-8448-c282bd5b6d7f" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="347ba327-2116-4645-ab9b-9ea0c316899b" name="Comment1">
+      <body>The Domain Model here only depends on the abstraction of the repository, which is the IRepository interface declared in the Apworks Framework. On the other hand, EdmRepository takes the reference to the domain model as well as the RDBMS to implement its functionality. Finally, the IoC Object Container creates the instance of EdmRepository and inject the instance into Domain Model. So although here appears the Bidirectional Dependency, actually the dependency from Domain Model to EdmRepository is a Dependency Injection.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="a2af00ea-bc0a-4731-a9c5-f80749dcf940" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="ea3edfe1-29c5-4725-ba03-2abdda3f72e0" name="TinyLibraryDB Database" />
+    <layer Id="a2af00ea-bc0a-4731-a9c5-f80749dcf940" name="Domain Model">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="5fcc5920-79d5-469a-a121-72473e929870" direction="Bidirectional">
+          <layerMoniker Id="9d1e0df2-5404-4c41-92f0-289b7d128eb3" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="827c5374-3ab5-4a7c-b0b3-e5577032b80d" name="WCF Application Service">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="6105a57a-2596-48db-8139-ed750ea926e3" direction="Forward">
+          <layerMoniker Id="a2af00ea-bc0a-4731-a9c5-f80749dcf940" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="cf344ab1-d089-4d63-b07f-303ebe053d66" direction="Forward">
+          <layerMoniker Id="9923aebe-5865-4920-bf4f-8e1165fed016" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="9923aebe-5865-4920-bf4f-8e1165fed016" name="Infrastructure">
+      <childLayers>
+        <layer Id="2fabee8d-958d-4c7b-ae38-fb8fb5ac0f5e" name="IoC Object Container" />
+        <layer Id="49a653b2-98ec-4d46-a8bf-519ca16d5b57" name="Caching Manager" />
+        <layer Id="3dbf3904-4e16-4ad9-9344-a11a54c3b06f" name="Apworks Framework" />
+      </childLayers>
+    </layer>
+    <layer Id="9d1e0df2-5404-4c41-92f0-289b7d128eb3" name="EdmRepository">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4671d9ce-734b-4525-8f3a-6d90bcd5492d" direction="Forward">
+          <layerMoniker Id="ea3edfe1-29c5-4725-ba03-2abdda3f72e0" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="44b1df8a-c5b5-42d8-95e7-0b54b6624fee" name="Microsoft .NET Framework 4.0" />
+    <layer Id="18a37901-be13-4b83-a1bb-cf0a419454d2" name="ASP.NET MVC Controller">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="9f44154a-6f79-4dfa-aed3-d7a8e80f2d41" direction="Forward">
+          <layerMoniker Id="827c5374-3ab5-4a7c-b0b3-e5577032b80d" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="6fb18ab9-7da5-4f67-92f1-d10289bcc134" direction="Forward">
+          <layerMoniker Id="d89e80cd-2c09-4b4c-9e90-37b511c97c6b" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="d89e80cd-2c09-4b4c-9e90-37b511c97c6b" name="ASP.NET MVC Model">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="764450db-5858-408e-9d4a-756e0be60312" direction="Forward">
+          <layerMoniker Id="827c5374-3ab5-4a7c-b0b3-e5577032b80d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="f3dc0733-d9ab-4564-9de4-31cb8d1972f2" name="ASP.NET MVC View">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="d4adfc99-3c58-42e2-b355-c417c20cddef" direction="Forward">
+          <layerMoniker Id="18a37901-be13-4b83-a1bb-cf0a419454d2" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="a1a9599e-6c68-4611-a94b-37c9cce449fe" direction="Forward">
+          <layerMoniker Id="d89e80cd-2c09-4b4c-9e90-37b511c97c6b" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

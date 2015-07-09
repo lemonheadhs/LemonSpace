@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TinyLibraryService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:3722/TinyLibraryService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:3722/TinyLibraryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:3722/TinyLibraryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TinyLibrary.Services.DataObjects" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITinyLibraryService_SayHello_InputMessage">
+    <wsdl:part name="parameters" element="tns:SayHello" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_SayHello_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SayHelloResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_GetAllBooks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooks" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_GetAllBooks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_AddBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBook" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_AddBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_AddReader_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddReader" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_AddReader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddReaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_GetBookDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookDetail" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_GetBookDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_GetReaderRegistrations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReaderRegistrations" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_GetReaderRegistrations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReaderRegistrationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_Borrow_InputMessage">
+    <wsdl:part name="parameters" element="tns:Borrow" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_Borrow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BorrowResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_Return_InputMessage">
+    <wsdl:part name="parameters" element="tns:Return" />
+  </wsdl:message>
+  <wsdl:message name="ITinyLibraryService_Return_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITinyLibraryService">
+    <wsdl:operation name="SayHello">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/SayHello" message="tns:ITinyLibraryService_SayHello_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/SayHelloResponse" message="tns:ITinyLibraryService_SayHello_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBooks">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/GetAllBooks" message="tns:ITinyLibraryService_GetAllBooks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/GetAllBooksResponse" message="tns:ITinyLibraryService_GetAllBooks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/AddBook" message="tns:ITinyLibraryService_AddBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/AddBookResponse" message="tns:ITinyLibraryService_AddBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReader">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/AddReader" message="tns:ITinyLibraryService_AddReader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/AddReaderResponse" message="tns:ITinyLibraryService_AddReader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/GetBookDetail" message="tns:ITinyLibraryService_GetBookDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/GetBookDetailResponse" message="tns:ITinyLibraryService_GetBookDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReaderRegistrations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/GetReaderRegistrations" message="tns:ITinyLibraryService_GetReaderRegistrations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/GetReaderRegistrationsResponse" message="tns:ITinyLibraryService_GetReaderRegistrations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Borrow">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/Borrow" message="tns:ITinyLibraryService_Borrow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/BorrowResponse" message="tns:ITinyLibraryService_Borrow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Return">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITinyLibraryService/Return" message="tns:ITinyLibraryService_Return_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITinyLibraryService/ReturnResponse" message="tns:ITinyLibraryService_Return_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITinyLibraryService" type="tns:ITinyLibraryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SayHello">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/SayHello" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBooks">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/GetAllBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/AddBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReader">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/AddReader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookDetail">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/GetBookDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReaderRegistrations">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/GetReaderRegistrations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Borrow">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/Borrow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Return">
+      <soap:operation soapAction="http://tempuri.org/ITinyLibraryService/Return" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TinyLibraryService">
+    <wsdl:port name="BasicHttpBinding_ITinyLibraryService" binding="tns:BasicHttpBinding_ITinyLibraryService">
+      <soap:address location="http://localhost:3722/TinyLibraryService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

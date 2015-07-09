@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TinyLibrary.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TinyLibraryStoreContainer">
+    <EntitySet Name="Books" EntityType="TinyLibrary.Store.Books" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Readers" EntityType="TinyLibrary.Store.Readers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Registrations" EntityType="TinyLibrary.Store.Registrations" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ReaderRegistration" Association="TinyLibrary.Store.ReaderRegistration">
+      <End Role="Reader" EntitySet="Readers" />
+      <End Role="Registration" EntitySet="Registrations" />
+    </AssociationSet>
+    <AssociationSet Name="BookRegistration" Association="TinyLibrary.Store.BookRegistration">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Registration" EntitySet="Registrations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PubDate" Type="datetime" Nullable="false" />
+    <Property Name="ISBN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pages" Type="int" Nullable="false" />
+    <Property Name="Lent" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Readers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Registrations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="ReturnDate" Type="datetime" Nullable="false" />
+    <Property Name="Reader_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Book_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="ReaderRegistration">
+    <End Role="Reader" Type="TinyLibrary.Store.Readers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Registration" Type="TinyLibrary.Store.Registrations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reader">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="Reader_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BookRegistration">
+    <End Role="Book" Type="TinyLibrary.Store.Books" Multiplicity="1" />
+    <End Role="Registration" Type="TinyLibrary.Store.Registrations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="TinyLibrary" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="TinyLibraryContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Books" EntityType="TinyLibrary.Book" />
+          <EntitySet Name="Readers" EntityType="TinyLibrary.Reader" />
+          <EntitySet Name="Registrations" EntityType="TinyLibrary.Registration" />
+          <AssociationSet Name="ReaderRegistration" Association="TinyLibrary.ReaderRegistration">
+            <End Role="Reader" EntitySet="Readers" />
+            <End Role="Registration" EntitySet="Registrations" />
+          </AssociationSet>
+          <AssociationSet Name="BookRegistration" Association="TinyLibrary.BookRegistration">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Registration" EntitySet="Registrations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Publisher" Nullable="false" />
+          <Property Type="DateTime" Name="PubDate" Nullable="false" />
+          <Property Type="String" Name="ISBN" Nullable="false" />
+          <Property Type="Int32" Name="Pages" Nullable="false" />
+          <Property Type="Boolean" Name="Lent" Nullable="false" />
+          <NavigationProperty Name="Registrations" Relationship="TinyLibrary.BookRegistration" FromRole="Book" ToRole="Registration" />
+        </EntityType>
+        <EntityType Name="Reader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Registrations" Relationship="TinyLibrary.ReaderRegistration" FromRole="Reader" ToRole="Registration" />
+          <Property Type="String" Name="UserName" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="Credential" >
+          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Reader" Relationship="TinyLibrary.ReaderRegistration" FromRole="Registration" ToRole="Reader" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="DateTime" Name="DueDate" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="ReturnDate" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="TinyLibrary.BookRegistration" FromRole="Registration" ToRole="Book" />
+        </EntityType>
+        <Association Name="ReaderRegistration">
+          <End Type="TinyLibrary.Reader" Role="Reader" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TinyLibrary.Registration" Role="Registration" Multiplicity="*" >
+          </End>
+        </Association>
+        <Association Name="BookRegistration">
+          <End Type="TinyLibrary.Book" Role="Book" Multiplicity="1" />
+          <End Type="TinyLibrary.Registration" Role="Registration" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TinyLibraryStoreContainer" CdmEntityContainer="TinyLibraryContainer">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="IsTypeOf(TinyLibrary.Book)">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="PubDate" ColumnName="PubDate" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Pages" ColumnName="Pages" />
+          <ScalarProperty Name="Lent" ColumnName="Lent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Readers">
+      <EntityTypeMapping TypeName="IsTypeOf(TinyLibrary.Reader)">
+        <MappingFragment StoreEntitySet="Readers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="IsTypeOf(TinyLibrary.Registration)">
+        <MappingFragment StoreEntitySet="Registrations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ReaderRegistration" TypeName="TinyLibrary.ReaderRegistration" StoreEntitySet="Registrations">
+      <EndProperty Name="Reader">
+        <ScalarProperty Name="Id" ColumnName="Reader_Id" />
+      </EndProperty>
+      <EndProperty Name="Registration">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BookRegistration" TypeName="TinyLibrary.BookRegistration" StoreEntitySet="Registrations">
+      <EndProperty Name="Book">
+        <ScalarProperty Name="Id" ColumnName="Book_Id" />
+      </EndProperty>
+      <EndProperty Name="Registration">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="TinyLibrary" >
+        <EntityTypeShape EntityType="TinyLibrary.Book" Width="1.5" PointX="6" PointY="3" Height="2.0853483072916665" />
+        <EntityTypeShape EntityType="TinyLibrary.Reader" Width="1.5" PointX="1" PointY="0.5" Height="1.592306315104167" />
+        <EntityTypeShape EntityType="TinyLibrary.Registration" Width="1.5" PointX="2.875" PointY="2.875" Height="2.0853483072916656" />
+        <AssociationConnector Association="TinyLibrary.ReaderRegistration">
+          <ConnectorPoint PointX="1.75" PointY="2.092306315104167" />
+          <ConnectorPoint PointX="1.75" PointY="3.9176741536458328" />
+          <ConnectorPoint PointX="2.875" PointY="3.9176741536458328" />
+        </AssociationConnector>
+        <AssociationConnector Association="TinyLibrary.BookRegistration">
+          <ConnectorPoint PointX="6" PointY="3.9801741536458328" />
+          <ConnectorPoint PointX="4.375" PointY="3.9801741536458328" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
