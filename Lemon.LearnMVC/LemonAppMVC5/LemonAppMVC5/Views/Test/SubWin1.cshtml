@@ -1,0 +1,75 @@
+﻿@model IEnumerable<KeyValuePair<string, string>>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SubWin1</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm()) {
+        <div>
+            <div id="lists">
+                @foreach (var item in Model)
+                {
+                    @Html.CheckBox(item.Value, new Dictionary<string, string> { { "value", item.Key }, {"id", item.Value}, {"data-bind", ""} })
+                    @Html.DisplayFor(modelItem => item.Value)
+                    <br />
+                }
+            </div>
+                <div style="border:solid 1px;width:200px;height:100px">
+                    <ul name="previewUl" data-bind="foreach: items">
+                        <li style="margin-right:4px"><p data-bind="text: $data.Value"></p></li>
+                    </ul>
+                </div>
+        </div>
+            <input type="button" onclick="closeSave()" value="save" />
+            <input type="button" onclick="window.close()" value="cancel" />
+        }
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/lemon")
+    <script type="text/javascript">
+        function Pair(k, v) {
+            this.Key = k;
+            this.Value = v;
+        }
+        function SelectList(chosedItems) {
+            this.items = ko.observableArray(chosedItems);
+
+        }
+
+        var pDataAll = [];
+
+        $(function () {
+
+
+            var initFunName = $.getUrlVar("initFun");
+            if (initFunName) {
+                var datas = window.opener[initFunName]();
+            }
+        });
+
+        function closeSave() {
+            //todo:
+
+
+            var postFunName = $.getUrlVar("postFun");
+            if (postFunName) {
+                window.opener[postFunName]();
+            }
+            window.close();
+        }
+
+    </script>
+</body>
+
+</html>

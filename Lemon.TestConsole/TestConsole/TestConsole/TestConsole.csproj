@@ -68,6 +68,7 @@
     <Compile Include="Test\ExpressionTreeStudy.cs" />
     <Compile Include="Test\HashSetStudy.cs" />
     <Compile Include="Test\LambdaStudy.cs" />
+    <Compile Include="Test\LeetCodeSolutions\PalindromicSubstr.cs" />
     <Compile Include="Test\LinqStudy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

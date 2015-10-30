@@ -1,0 +1,62 @@
+
+D:\GitHub\LemonSpace\Lemon.LearnMVC\LemonAppMVC5\LemonAppMVC5\bin
+
+D:\GitHub\LemonSpace\Lemon.LearnMVC\LemonRebuildMvc\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll
+
+E:\WorkSpace\DtscMcsMOA\trunk\external-bin\Dtsc.Cdtas.MOA.dll
+
+
+#r @"C:\Program Files\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll"
+open System.Web.Mvc;;
+
+#r @"D:\GitHub\LemonSpace\Lemon.LearnMVC\LemonAppMVC5\LemonAppMVC5\bin\System.Web.Mvc.dll"
+open System.Web.Mvc;;
+
+#r @"D:\GitHub\LemonSpace\Lemon.LearnMVC\LemonRebuildMvc\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll"
+open Moq;;
+
+#r @"E:\WorkSpace\DtscMcsMOA\trunk\external-bin\Dtsc.Cdtas.MOA.dll"
+open Dtsc.Cdtas.MOA.Data;;
+
+#r @"D:\GitHub\LemonSpace\Lemon.LearnMVC\LemonAppMVC5\packages\Foq.1.7.1\Lib\net45\Foq.dll"
+open Foq;;
+
+
+
+
+    public class RelatedMTaskVM
+    {
+        public string TaskTitle { get; set; }
+        public string DoManName { get; set; }
+        public string StateStr { get; set; }
+        public string DeptName { get; set; }
+        public string PlanEndTime { get; set; }
+    }
+
+
+
+-----------------------------
+
+let controllerContext =
+      Mock<ControllerContext>()
+          .Setup(fun x -> <@ x.Controller @>).Returns(null)
+          .Create();;
+
+type ModelWithoutBindAttribute() =
+    member val Foo :string = null with get,set
+    member val Bar :string = null with get,set
+    member val Baz :string = null with get,set
+
+
+
+
+
+
+
+
+
+
+
+
+
+

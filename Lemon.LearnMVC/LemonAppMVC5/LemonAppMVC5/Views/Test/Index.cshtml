@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    
+    <input type="button" onclick="openWin('Test/SubWin?t=1')" value="Button1" />
+    <input type="button" onclick="openWin('Test/SubWin?t=2')" value="Button2" />
+    <br />
+    names:<input type="text" name="txtNames" style="width:800px" value="" /><br />
+    ids:<input type="text" name="txtIds" style="width:800px" value="" />
+</div>
+
+
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/lemon")
+    <script type="text/javascript">
+        function Pair(k, v) {
+            this.Key = k;
+            this.Value = v;
+        }
+        function TestVM() {
+            this.pairsA = ko.observableArray([]);
+            this.pairsB = ko.observableArray([]);
+            this.pipe = ko.observableArray([this.pairsA, this.pairsB]);
+
+            this.names = ko.pureComputed(function () {
+                return this.retrieveNames(this.pipe());
+            }, this);
+
+            this.ids = ko.pureComputed(function () {
+                return this.retrieveIds(this.pipe());
+            }, this);
+
+            this.retrieve = function (f) {
+                return R.pipe(R.flatten,
+                               R.map(f),
+                               R.join(','));
+            }
+            this.retrieveNames = this.retrieve(function (x) {
+                return x.Value;
+            });
+            this.retrieveIds = this.retrieve(function (x) {
+                return x.Key;
+            });
+        }
+
+    </script>
+}

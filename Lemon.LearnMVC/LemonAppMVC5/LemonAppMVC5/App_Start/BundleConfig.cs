@@ -26,6 +26,10 @@ namespace LemonAppMVC5
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/lemon").Include(
+                        "~/Scripts/Lemon/*.js",
+                        "~/Scripts/knockout-{version}.js"));
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TestConsole.Test;
+using TestConsole.Test.LeetCodeSolutions;
 
 namespace TestConsole
 {
@@ -89,7 +90,9 @@ namespace TestConsole
 
             //DynamicObjectStudy.DoTest();
 
-            HashSetStudy.DoTest();
+            //HashSetStudy.DoTest();
+
+            PalindromicSubstr.DoTest();
         }
     }
 }
