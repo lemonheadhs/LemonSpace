@@ -1,17 +1,28 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
 <div>
-    
-    <input type="button" onclick="openWin('Test/SubWin?t=1')" value="Button1" />
-    <input type="button" onclick="openWin('Test/SubWin?t=2')" value="Button2" />
+
+    <input type="button" onclick="openWin('Test/SubWin?t=1&initFun=init1&postFun=post1')" value="Button1" />
+    <input type="button" onclick="openWin('Test/SubWin?t=2&initFun=init2&postFun=post2')" value="Button2" />
     <br />
-    names:<input type="text" name="txtNames" style="width:800px" value="" /><br />
-    ids:<input type="text" name="txtIds" style="width:800px" value="" />
+    <dl>
+        <dt>
+            names:
+        </dt>
+        <dd>
+            <input type="text" name="txtNames" style="width:800px" data-bind="value: names" />
+        </dd>
+        <dt>
+            ids :
+        </dt>
+        <dd>
+            <input type="text" name="txtIds" style="width:800px" data-bind="value: ids" />
+        </dd>
+    </dl>
 </div>
 
 
@@ -25,29 +36,86 @@
             this.Value = v;
         }
         function TestVM() {
+            var self = this;
+
             this.pairsA = ko.observableArray([]);
             this.pairsB = ko.observableArray([]);
             this.pipe = ko.observableArray([this.pairsA, this.pairsB]);
 
             this.names = ko.pureComputed(function () {
-                return this.retrieveNames(this.pipe());
+                return retrieveNames(
+                    R.map(function (n) {
+                            return n();
+                        },
+                        self.pipe()));
             }, this);
-
             this.ids = ko.pureComputed(function () {
-                return this.retrieveIds(this.pipe());
+                return retrieveIds(
+                    R.map(function (n) {
+                            return n();
+                        },
+                        self.pipe()));
             }, this);
 
-            this.retrieve = function (f) {
+            this.namesA = ko.pureComputed(function () {
+                return retrieveNames(this.pairsA());
+            }, this);
+            this.idsA = ko.pureComputed(function () {
+                return retrieveIds(this.pairsA());
+            }, this);
+
+            this.namesB = ko.pureComputed(function () {
+                return retrieveNames(this.pairsB());
+            }, this);
+            this.idsB = ko.pureComputed(function () {
+                return retrieveIds(this.pairsB());
+            }, this);
+
+            var retrieve = function (f) {
                 return R.pipe(R.flatten,
                                R.map(f),
                                R.join(','));
             }
-            this.retrieveNames = this.retrieve(function (x) {
+            var retrieveNames = retrieve(function (x) {
                 return x.Value;
             });
-            this.retrieveIds = this.retrieve(function (x) {
+            var retrieveIds = retrieve(function (x) {
                 return x.Key;
             });
+        }
+
+        $(function () {
+
+            window["model"] = new TestVM();
+            ko.applyBindings(window["model"]);
+
+        });
+
+
+        function init1() {
+            return model.idsA();
+        }
+        function init2() {
+            return model.idsB(); //"abc,eea";//"abc,eee"
+        }
+
+        function post1(ids, names, pairs) {
+            var arrA = R.map(function (item) {
+                                return new Pair(item.Key, item.Value);
+                            }, pairs);
+            model.pairsA(arrA);
+            if (model.pipe()[0]!=model.pairsA) {
+                model.pipe.reverse();
+            }
+        }
+        function post2(ids, names, pairs) {
+            var arrB = R.map(function (item) {
+                return new Pair(item.Key, item.Value);
+            }, pairs);
+            model.pairsB(arrB);
+            if (model.pipe()[0] != model.pairsB) {
+                model.pipe.reverse();
+            }
         }
 
     </script>

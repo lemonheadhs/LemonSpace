@@ -18,14 +18,15 @@
             <div id="lists">
                 @foreach (var item in Model)
                 {
-                    @Html.CheckBox(item.Value, new Dictionary<string, string> { { "value", item.Key }, {"id", item.Value}, {"data-bind", ""} })
-                    @Html.DisplayFor(modelItem => item.Value)
+                    @Html.CheckBox(item.Value, new Dictionary<string, object> { { "_key_", item.Key }, { "data-bind", "checked: chosenIds" }, { "value", item.Key } })
+                    @item.Value
                     <br />
                 }
+                <text data-bind="text: chosenIds().join(',')"></text>
             </div>
                 <div style="border:solid 1px;width:200px;height:100px">
                     <ul name="previewUl" data-bind="foreach: items">
-                        <li style="margin-right:4px"><p data-bind="text: $data.Value"></p></li>
+                        <li style="margin-right:15px;float:left"><p data-bind="text: $data.Value"></p></li>
                     </ul>
                 </div>
         </div>
@@ -43,18 +44,29 @@
             this.Value = v;
         }
         function SelectList(chosedItems) {
-            this.items = ko.observableArray(chosedItems);
+            var self = this;
+
+            this.dataAll = R.map(function (item) {
+                return new Pair($(item).attr("_key_"), item.name);
+            }, $.makeArray($('#lists input[type=checkbox]')));
+            this.chosenIds = chosedItems ? ko.observableArray(chosedItems.split(',')) : ko.observableArray();
+            this.items = ko.pureComputed(function () {
+                var arr = R.map(function (id) {
+                                return R.find(R.propEq("Key", id),
+                                              self.dataAll);
+                }, self.chosenIds());
+                return arr;
+            }, this); 
 
         }
-
-        var pDataAll = [];
-
+        
         $(function () {
-
 
             var initFunName = $.getUrlVar("initFun");
             if (initFunName) {
                 var datas = window.opener[initFunName]();
+                window["model"] = new SelectList(datas);
+                ko.applyBindings(window["model"]);
             }
         });
 
@@ -64,7 +76,14 @@
 
             var postFunName = $.getUrlVar("postFun");
             if (postFunName) {
-                window.opener[postFunName]();
+                window.opener[postFunName](
+                    model.chosenIds(), 
+                    R.pipe(
+                        R.map(function (n) {
+                            return n.Value;
+                        }),
+                        R.join(','))(model.items()),
+                    model.items());
             }
             window.close();
         }
