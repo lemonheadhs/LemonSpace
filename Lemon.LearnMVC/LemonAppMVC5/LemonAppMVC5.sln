@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonAppMVC5", "LemonAppMVC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonAppMVC5.Tests", "LemonAppMVC5.Tests\LemonAppMVC5.Tests.csproj", "{E4B72DB2-C1B3-4A49-8207-71DAD0EE80C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonBiz", "LemonBiz\LemonBiz.csproj", "{B24BE821-A3E4-468E-A538-12EF20124382}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E4B72DB2-C1B3-4A49-8207-71DAD0EE80C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4B72DB2-C1B3-4A49-8207-71DAD0EE80C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4B72DB2-C1B3-4A49-8207-71DAD0EE80C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24BE821-A3E4-468E-A538-12EF20124382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24BE821-A3E4-468E-A538-12EF20124382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24BE821-A3E4-468E-A538-12EF20124382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24BE821-A3E4-468E-A538-12EF20124382}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

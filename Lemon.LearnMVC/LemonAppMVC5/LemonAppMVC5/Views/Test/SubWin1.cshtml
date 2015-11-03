@@ -10,26 +10,44 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>SubWin1</title>
+
+    <style>
+        .search-choice-close {
+	        display: block;
+	        //position: absolute;
+	        right: 3px;
+	        top: 2px;
+	        padding:0!important;
+	        width: 12px;
+	        height: 12px;
+	        font-size: 1px;
+	        background: url('../../Content/image/chosen-sprite.png') -42px 1px no-repeat;
+        }
+    </style>
 </head>
 <body>
     <div>
-        @using (Html.BeginForm()) {
-        <div>
-            <div id="lists">
-                @foreach (var item in Model)
-                {
-                    @Html.CheckBox(item.Value, new Dictionary<string, object> { { "_key_", item.Key }, { "data-bind", "checked: chosenIds" }, { "value", item.Key } })
-                    @item.Value
-                    <br />
-                }
-                <text data-bind="text: chosenIds().join(',')"></text>
-            </div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                <div id="lists">
+                    @foreach (var item in Model)
+                    {
+                        @Html.CheckBox(item.Value, new Dictionary<string, object> { { "_key_", item.Key }, { "data-bind", "checked: chosenIds" }, { "value", item.Key } })
+                        @item.Value
+                        <br />
+                    }
+                    <text data-bind="text: chosenIds().join(',')"></text>
+                </div>
                 <div style="border:solid 1px;width:200px;height:100px">
                     <ul name="previewUl" data-bind="foreach: items">
-                        <li style="margin-right:15px;float:left"><p data-bind="text: $data.Value"></p></li>
+                        <li style="margin-right:25px;float:left">
+                            <p data-bind="text: $data.Value"></p>
+                            <a class='search-choice-close' title='移除' data-bind="click: $root.remove"></a>
+                        </li>
                     </ul>
                 </div>
-        </div>
+            </div>
             <input type="button" onclick="closeSave()" value="save" />
             <input type="button" onclick="window.close()" value="cancel" />
         }
@@ -52,14 +70,17 @@
             this.chosenIds = chosedItems ? ko.observableArray(chosedItems.split(',')) : ko.observableArray();
             this.items = ko.pureComputed(function () {
                 var arr = R.map(function (id) {
-                                return R.find(R.propEq("Key", id),
-                                              self.dataAll);
+                    return R.find(R.propEq("Key", id),
+                                  self.dataAll);
                 }, self.chosenIds());
                 return arr;
-            }, this); 
+            }, this);
 
+            this.remove = function (data, e) {
+                self.chosenIds.remove(data.Key);
+            }
         }
-        
+
         $(function () {
 
             var initFunName = $.getUrlVar("initFun");
@@ -77,7 +98,7 @@
             var postFunName = $.getUrlVar("postFun");
             if (postFunName) {
                 window.opener[postFunName](
-                    model.chosenIds(), 
+                    model.chosenIds(),
                     R.pipe(
                         R.map(function (n) {
                             return n.Value;
@@ -90,5 +111,7 @@
 
     </script>
 </body>
+
+
 
 </html>
