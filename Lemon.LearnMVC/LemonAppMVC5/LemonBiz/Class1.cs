@@ -75,9 +75,58 @@ namespace LemonBiz
             throw new NotImplementedException();
         }
 
-        public IEnumerable<BTNode<T>> DoPreOrderTraversal()
+        public List<BTNode<T>> DoPreOrderTraversal()
         {
-            throw new NotImplementedException(); 
+            return DoTraversal(PreOrderTraversal); 
+        }
+
+        protected List<BTNode<T>> DoTraversal(Action<BTNode<T>, Action<BTNode<T>>> traversalMethod)
+        {
+            List<BTNode<T>> list = new List<BTNode<T>>(Count);
+
+            Action<BTNode<T>> travel = n => list.Add(n);
+            traversalMethod(Root, travel);
+
+            return list;
+        }
+
+        public void PreOrderTraversal(BTNode<T> node, Action<BTNode<T>> travel)
+        {
+            travel(node);
+            if (node.Left!=null)
+            {
+                PreOrderTraversal(node.Left, travel);
+            }
+            if (node.Right!=null)
+            {
+                PreOrderTraversal(node.Right, travel);
+            }
+        }
+
+        public void InOrderTraversal(BTNode<T> node, Action<BTNode<T>> travel)
+        {
+            if (node.Left != null)
+            {
+                InOrderTraversal(node.Left, travel);
+            }
+            travel(node);
+            if (node.Right != null)
+            {
+                InOrderTraversal(node.Right, travel);
+            }
+        }
+
+        public void PostOrderTraversal(BTNode<T> node, Action<BTNode<T>> travel)
+        {
+            if (node.Left != null)
+            {
+                PostOrderTraversal(node.Left, travel);
+            }
+            if (node.Right != null)
+            {
+                PostOrderTraversal(node.Right, travel);
+            }
+            travel(node);
         }
     }
 }
