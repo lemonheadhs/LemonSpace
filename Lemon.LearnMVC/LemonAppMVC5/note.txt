@@ -6,8 +6,8 @@
 Start-IISExpress $siteId
 
 
-
-
+#r @"D:\GitHub\LemonSpace\Lemon.LearnMVC\LemonAppMVC5\LemonBiz\bin\Debug\LemonBiz.dll"
+open LemonBiz;;
 
 
 
