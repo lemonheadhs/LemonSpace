@@ -20,6 +20,7 @@ namespace TestConsole
             //LinqStudy.DoTest();
             //LinqStudy.DoTest1();
             //LinqStudy.DoTest3();
+            LinqStudy.DoTest4();
 
 
             //CodeTest.DoTest();
@@ -92,7 +93,7 @@ namespace TestConsole
 
             //HashSetStudy.DoTest();
 
-            PalindromicSubstr.DoTest();
+            //PalindromicSubstr.DoTest();
         }
     }
 }

@@ -60,6 +60,29 @@ namespace TestConsole
             }
             Console.ReadKey();
         }
+
+        public static void DoTest4()
+        {
+            //List<string[]> list = new List<string[]>();
+            //list.Add(new string[] { "aa", "AA" });
+            //list.Add(new string[] { "bb", "BB" });
+            //list.Add(new string[] { "cc", "CC" });
+            //list.Add(new string[] { "dd", "DD" });
+
+            string[] list = { "aa", "bb", "cc", "dd" };
+            string[] list2 = { "AA", "BB", "CC", "DD" };
+
+            bool[] arrb = { true, false, true, false };
+
+            var sm = 
+                list.Zip(list2, (l,r)=> new string[]{ l, r})
+                    .Where((s, i) => arrb[i])
+                    .SelectMany(s => s);
+            Console.WriteLine(string.Join(",", sm));
+            Console.ReadKey();
+        }
+
+
     }
 
     // 用来支撑扩展方法的静态类
