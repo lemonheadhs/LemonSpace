@@ -105,10 +105,251 @@
 					</select>
 				</div>
 			</div>
+		</form>	
+	</div><br/>
+	
+	<div class="container">
+		<form>
+			<div class="row">
+				<div class="col-md-3"><input class="form-control" type="text" /></div>
+				<div class="col-md-4"><input class="form-control" type="text" /></div>
+				<div class="col-md-5"><input class="form-control" type="text" /></div>
+			</div><br/>
+			<div class="row">
+				<div class="col-md-3"><textarea class="form-control" ></textarea></div>
+				<div class="col-md-4"><textarea class="form-control" ></textarea></div>
+				<div class="col-md-5"><textarea class="form-control" ></textarea></div>
+			</div><br/>
+			<div class="row">
+				<div class="col-md-3"><select class="form-control" ><option>Select</option></select></div>
+				<div class="col-md-4"><select class="form-control" ><option>Select</option></select></div>
+				<div class="col-md-5"><select class="form-control" ><option>Select</option></select></div>
+			</div>
+		</form>		
+	</div><br/>
+	
+	<div class="container">
+		<form class="form-horizontal">
+			<div class="form-group form-group-lg">
+				<label class="col-md-3 control-label" for="inputLarge1">Large input</label>
+				<div class="col-md-9"><input id="inputLarge1" class="form-control" type="text" placeholder="Large input" /></div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="inputDefault1">Default input</label>
+				<div class="col-md-9"><input id="inputDefault1" class="form-control" type="text" placeholder="Default input"/></div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label class="col-md-3 control-label" for="inputSmall1">Small input</label>
+				<div class="col-md-9"><input id="inputSmall1" class="form-control" type="text" placeholder="Small input" /></div>
+			</div>
 		</form>
 	
+	</div><br/>
+	
+	<div class="container">
+		<form>
+			<div class="form-group">
+				<input class="form-control" type="text" placeholder="Disabled input" disabled="disabled" />		
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" placeholder="Readonly input" readonly="readonly" />
+			</div>
+		</form>	
+	</div><br/>
+	
+	<div class="container">
+		<form class="form-horizontal">
+			<fieldset disabled="disabled">
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="inputEmail1">Email</label>
+					<div class="col-md-10"><input type="emaill" class="form-control" id="inputEmail1" placeholder="Email" /></div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label" for="inputPassword1">Password</label>
+					<div class="col-md-10"><input type="password" class="form-control" id="inputPassword1" placeholder="Password" /></div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<div class="checkbox"><label><input type="checkbox" />Remeber me</label></div></div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10"><button class="btn btn-primary" type="submit">Login</button></div>
+				</div>
+			</fieldset>
+		</form>
+	</div><br/>
+	
+	<div class="container">
+		<form>
+			<input type="text" class="form-control" />
+			<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+		</form>
+	</div><br/>
+	
+	<div class="container">
+		<form class="form-horizontal">
+			<div class="form-group has-success">
+				<label class="col-md-2 control-label" for="inputSuccess">Username</label>
+				<div class="col-md-10">
+					<input id="inputSuccess" class="form-control" type="text" placeholder="Input with success" />
+					<span class="help-block">Username is available</span>
+				</div>
+			</div>
+			<div class="form-group has-warning">
+				<label class="col-md-2 control-label" for="inputWarning">Password</label>
+				<div class="col-md-10">
+					<input id="inputWarning" class="form-control" type="text" placeholder="Input with warning" />
+					<span class="help-block">Password strength: Weak</span>
+				</div>
+			</div>
+			<div class="form-group has-error">
+				<label class="col-md-2 control-label" for="inputError">Email</label>
+				<div class="col-md-10">
+					<input id="inputError" class="form-control" type="text" placeholder="Input with error" />
+					<span class="help-block">Please enter a valid email address</span>
+				</div>
+			</div>
+		</form>
+	</div><br/>
+	
+	<div class="container">
+		<form class="form-horizontal">
+			<div class="form-group has-success has-feedback">
+				<label class="col-md-2 control-label" for="inputSuccess">Username</label>
+				<div class="col-md-10">
+					<input id="inputSuccess" class="form-control" type="text" placeholder="Input with success" />
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					<span class="help-block">Username is available</span>
+				</div>
+			</div>
+			<div class="form-group has-warning has-feedback">
+				<label class="col-md-2 control-label" for="inputWarning">Password</label>
+				<div class="col-md-10">
+					<input id="inputWarning" class="form-control" type="text" placeholder="Input with warning" />
+					<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+					<span class="help-block">Password strength: Weak</span>
+				</div>
+			</div>
+			<div class="form-group has-error has-feedback">
+				<label class="col-md-2 control-label" for="inputError">Email</label>
+				<div class="col-md-10">
+					<input id="inputError" class="form-control" type="text" placeholder="Input with error" />
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<span class="help-block">Please enter a valid email address</span>
+				</div>
+			</div>
+		</form>
+	</div><br/>
+	
+	<div class="container">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="inputEmail" >Email:</label>
+				<div class="col-md-9">
+					<input id="inputEmail" class="form-control" type="email" placeholder="Email" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="inputPassword2">Password:</label>
+				<div class="col-md-9">
+					<input id="inputPassword2" class="form-control" type="password" placeholder="Password" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="confirmPassword">Confirm Password:</label>
+				<div class="col-md-9">
+					<input id="confirmPassword" class="form-control" type="password" placeholder="Confirm password" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="firstName">First Name:</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" id="firstName" placeholder="First Name" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="lastName">Last Name:</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" id="lastName" placeholder="Last Name" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="phoneNumer">Phone:</label>
+				<div class="col-md-9">
+					<input type="tel" class="form-control" id="phoneNumer" placeholder="Phone Number" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Date of Birth:</label>
+				<div class="col-md-3">
+					<select class="form-control">
+						<option>Date</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control">
+						<option>Month</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control">
+						<option>Year</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="postalAddress">Address:</label>
+				<div class="col-md-9">
+					<textarea id="postalAddress" class="form-control" row="3" placeholder="Postal Address" ></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label" for="zipCode">Zip Code:</label>
+				<div class="col-md-9">
+					<input type="text" id="zipCode" class="form-control" placeholder="Zip Code" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Gender:</label>
+				<div class="col-md-2">
+					<label class="radio-inline">
+						<input type="radio" name="genderRadios" value="male" />Male
+					</label>
+				</div>
+				<div class="col-md-2">
+					<label class="radio-inline">
+						<input type="radio" name="genderRadios" value="female" />Female
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-3 col-md-9">
+					<label class="checkbox-inline">
+						<input type="checkbox" value="news" />Send me lasted news and updates.
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-3 col-md-9">
+					<label class="checkbox-inline">
+						<input type="checkbox" value="agree" />
+						I agree to the <a href="#">Terms and Conditions</a>.
+					</label>
+				</div>
+			</div>
+			<br/>
+			<div class="form-group">
+				<div class="col-md-offset-3 col-md-9">
+					<input type="submit" class="btn btn-primary" value="Submit" />
+					<input type="reset" class="btn btn-default" value="Reset" />
+				</div>
+			</div>
+		</form>
 	</div>
 	
+	
+	
+	<br/><br/><br/>
 	
 	
 
