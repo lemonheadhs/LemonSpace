@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap -- Dropdowns</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/css/bootstrap.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="../lib/css/bootstrap-theme.css">
+</head>
+<body>
+    <br/>
+    <div class="container">
+        <div class="dropdown">
+            <a href="#" data-toggle="dropdown" 
+                class="dropdown-toggle btn btn-default">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another Action</a></li>
+            </ul>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="navbar navbar-static navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Navbar Toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Brand</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbarCollaspse">                
+                <ul class="nav navbar-nav" role="navigation">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Inbox</a></li>
+                            <li><a href="#">Drafts</a></li>
+                            <li><a href="#">Sent Items</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Trash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another Action</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Drafts</a></li>
+                    <li><a href="#">Sent Items</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Trash</a></li>
+                </ul>
+            </li>
+            <li class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Anther action</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Setting</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" 
+                data-toggle="dropdown">Action <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another Action</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated Action</a></li>
+            </ul>
+        </div>        
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another Action</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated Action</a></li>
+            </ul>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Another Button</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" 
+                    data-toggle="dropdown">Dropdown <b class="caret"></b></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another Action</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated Action</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group btn-group-vertical">
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Another Button</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" 
+                    data-toggle="dropdown">Dropdown <b class="caret"></b></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another Action</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated Action</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Another Button</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" 
+                    data-toggle="dropdown">Dropdown <b class="caret"></b></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another Action</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated Action</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-header">ELECTRONICS</li>
+                <li><a href="#">Mobiles</a></li>
+                <li><a href="#">Tablets</a></li>
+                <li><a href="#">Laptops</a></li>
+                <li class="dropdown-header">FASHION</li>
+                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Sunglasses</a></li>
+            </ul>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Report <b class="caret"></b></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">View</a></li>
+                <li><a href="#">Download</a></li>
+                <li class="disabled"><a href="#">Edit / Delete</a></li>
+            </ul>
+        </div>
+    </div><br/>
+    
+    
+    
+    <div class="container">
+        
+    </div><br/>
+    
+    <br/><br/><br/>
+    <script src="../lib/js/jquery-2.1.4.js"></script>
+    <script src="../lib/js/bootstrap.js"></script>
+    <scritp>
+        $(function(){
+            //$(".dropdown-toggle").dropdown();
+        });
+    </scritp>
+</body>
+
+</html>
+

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap -- Popovers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/css/bootstrap.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="../lib/css/bootstrap-theme.css">
+</head>
+<body>
+    <br/>
+    <div class="container">
+        <button type="button" class="btn btn-primary" data-toggle="popover" title="Popover title" data-placement="top" data-content="Default popover">Popover on top</button>
+        <button type="button" class="btn btn-success" data-toggle="popover" title="Popover title" data-placement="right" data-content="Popover on right">Popover on right</button>
+        <button type="button" class="btn btn-info" data-toggle="popover" title="Popover title" data-placement="bottom" data-content="Popover on bottom">Popover on bottom</button>
+        <button type="button" class="btn btn-warning" data-toggle="popover" title="Popover title" data-placement="left" data-content="Popover on left">Popover on left</button>
+    </div><br/>
+    
+    
+    
+    
+    <div class="container">
+        
+    </div><br/>
+    
+    <br/><br/><br/>
+    <script src="../lib/js/jquery-2.1.4.js"></script>
+    <script src="../lib/js/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $(".container:eq(0) a[data-toggle='popover']").popover();
+        })
+    </script>
+</body>
+
+</html>
+

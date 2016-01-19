@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap -- Modals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/css/bootstrap.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="../lib/css/bootstrap-theme.css">
+</head>
+<body>
+    <br/>
+    <div class="container">
+        <button type="button" class="btn btn-default" id="btnTest1">Try this...</button>
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirmation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to save changes you made to document before closing?</p>
+                        <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <a href="#myModal2" class="btn btn-default btn-large" data-toggle="modal">Launch Demo Modal</a>
+        <div id="myModal2" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title">Confirmation</p>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to save changes you made to document before closing?</p>
+                        <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group">
+            <a href="#largeModal" class="btn btn-default" data-toggle="modal">1</a>
+            <a href="#smallModal" class="btn btn-default" data-toggle="modal">2</a>
+        </div>
+        <div class="modal fade" tabindex="-1" id="largeModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Large Modal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Add the <code>.modal-lg</code> class on <code>.modal-dialog</code> to create this larger modal.</p>                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="smallModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Small Modal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Add the <code>.modal-sm</code> class on <code>.modal-dialog</code> to create this small modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancle</button>
+                        <button type="button" class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br/>
+    
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" data-toggle="modal" data-target="#mutableModal" data-title="hello" class="btn btn-default">One button</button>
+            <button type="button" data-toggle="modal" data-target="#mutableModal" data-title="bonjour" class="btn btn-default">Another button</button>
+        </div>
+        <div class="modal fade" id="mutableModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"> </h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Amazing Lemonhead!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br/>
+    
+    
+    <div class="container"></div><br/>
+    
+    <br/><br/><br/>
+    <script src="../lib/js/jquery-2.1.4.js"></script>
+    <script src="../lib/js/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $("#btnTest1").click(function(){
+                $("#myModal").modal("show");
+            });
+            
+            $("#mutableModal").on("show.bs.modal", function(event){
+                var button = $(event.relatedTarget);
+                $(this).find(".modal-title").text(button.data("title"));
+            });
+        });
+            
+    </script>
+</body>
+
+</html>
+

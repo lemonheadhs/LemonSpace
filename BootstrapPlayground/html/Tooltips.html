@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap -- Tooltips</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/css/bootstrap.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="../lib/css/bootstrap-theme.css">
+</head>
+<body>
+    <br/><br/><br/>
+    <div class="container">
+        <a href="#" class="btn btn-link" title="default tooltip" data-placement="top" data-toggle="tooltip">Tooltip</a>
+        <a href="#" class="btn btn-link" title="another tooltip" data-placement="right" data-toggle="tooltip">Another tooltip</a>
+        <a href="#" class="btn btn-link tooltip-large" title="large tooltip" data-placement="bottom" data-toggle="tooltip">Larger tooltip</a>
+        <a href="#" class="btn btn-link" title="last tooltip" data-placement="left" data-toggle="tooltip">Last tooltip</a>
+    </div><br/>
+    
+    
+    
+    <div class="container">
+        
+    </div><br/>
+    
+    <br/><br/><br/>
+    <script src="../lib/js/jquery-2.1.4.js"></script>
+    <script src="../lib/js/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $(".container:eq(0) a[data-toggle='tooltip']").tooltip();
+        })
+    </script>
+</body>
+
+</html>
+

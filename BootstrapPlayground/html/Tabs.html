@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap -- Tabs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/css/bootstrap.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="../lib/css/bootstrap-theme.css">
+</head>
+<body>
+    <br/>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Profie</a></li>
+            <li><a href="#">Messages</a></li>
+        </ul>
+    </div><br/>
+    
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#sectionA">Section A</a></li>
+            <li><a data-toggle="tab" href="#sectionB">Section B</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#dropdown1" data-toggle="tab">Dropdown 1</a></li>
+                    <li><a href="#dropdown2" data-toggle="tab">Dropdown 2</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="sectionA" class="tab-pane fade in active">
+                <p>Section A content...</p>
+            </div>
+            <div id="sectionB" class="tab-pane fade">
+                <p>Section B content...</p>
+            </div>
+            <div id="dropdown1" class="tab-pane fade">
+                <p>Dropdown 1 content...</p>
+            </div>
+            <div id="dropdown2" class="tab-pane fade">
+                <p>Dropdown 2 content...</p>
+            </div>
+        </div>
+    </div><br/>
+    
+    
+    
+    
+    
+    <div class="container">
+        
+    </div><br/>
+    
+    <br/><br/><br/>
+    <script src="../lib/js/jquery-2.1.4.js"></script>
+    <script src="../lib/js/bootstrap.js"></script>
+</body>
+
+</html>
+
