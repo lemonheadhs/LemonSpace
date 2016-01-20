@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../lib/css/bootstrap-theme.css">
 </head>
 <body>
-    <br/>
+    <br/><br/><br/><br/><br/><br/>
     <div class="container">
         <button type="button" class="btn btn-primary" data-toggle="popover" title="Popover title" data-placement="top" data-content="Default popover">Popover on top</button>
         <button type="button" class="btn btn-success" data-toggle="popover" title="Popover title" data-placement="right" data-content="Popover on right">Popover on right</button>
@@ -29,7 +29,7 @@
     <script src="../lib/js/bootstrap.js"></script>
     <script>
         $(function(){
-            $(".container:eq(0) a[data-toggle='popover']").popover();
+            $(".container:eq(0) button[data-toggle='popover']").popover();
         })
     </script>
 </body>
