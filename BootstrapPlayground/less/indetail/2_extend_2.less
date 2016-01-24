@@ -1,0 +1,25 @@
+// nested selectors is recognized
+
+.bucket {
+    tr {
+        color: blue;
+    }
+}
+.some-class:extend(.bucket tr){}
+
+.bucket1 {
+    tr & {
+        color: red;
+    }
+}
+.some-class1:extend(tr .bucket1){}
+
+
+// exact matching
+
+.a.class,
+.class.a,
+.class > .a {
+    color: blue;
+}
+.test:extend(.class){}// this will not match the any selectors above

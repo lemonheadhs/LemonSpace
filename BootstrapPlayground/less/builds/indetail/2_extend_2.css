@@ -1,0 +1,13 @@
+.bucket tr,
+.some-class {
+  color: blue;
+}
+tr .bucket1,
+.some-class1 {
+  color: red;
+}
+.a.class,
+.class.a,
+.class > .a {
+  color: blue;
+}

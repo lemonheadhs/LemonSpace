@@ -1,0 +1,15 @@
+@var: red;
+
+#page {
+    @var: white;
+    #header {
+        color: @var;
+    }
+}
+
+#page-same {
+    #header {
+        color: @var;
+    }
+    @var: white;
+}

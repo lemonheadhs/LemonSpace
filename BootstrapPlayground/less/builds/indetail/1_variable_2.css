@@ -1,0 +1,16 @@
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+body {
+  color: #444;
+  background: url("../img/white-sand.png");
+}
+#header {
+  color: #6c94be;
+}
+.widget {
+  color: #0ee;
+  background-color: #999;
+}

@@ -1,0 +1,30 @@
+// numbers are converted into the same units
+@conversion-1: 5cm + 10mm;
+@conversion-2: 2 - 3cm - 5mm;
+
+// conversion is impossible
+@incompatible-units: 2 + 5px - 3cm;
+
+// example with variables
+@base: 5%;
+@filler: @base * 2;
+@other: @base + @filler;
+
+.result {
+    width: @conversion-1;
+    height: @conversion-2;
+}
+.incompatible-result {
+    height: @incompatible-units;
+}
+.result1 {
+    width: @filler;
+    height: @other;
+}
+
+@color: #224488 / 2;
+@backgroud-color: #112244 + #111;
+.result2 {
+    color: @color;
+    background-color: @backgroud-color;
+}

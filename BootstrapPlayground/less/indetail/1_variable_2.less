@@ -1,0 +1,29 @@
+// Selectors
+@my-selector: banner;
+
+.@{my-selector} {
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0 auto;
+}
+
+// Urls
+@images: "../img";
+
+body {
+    color: #444;
+    background: url("@{images}/white-sand.png");
+}
+
+// Import Statements
+@themes: "../../less";
+
+@import "@{themes}/Variables.less";
+
+// Properties
+@property: color;
+
+.widget {
+    @{property}: #0ee;
+    background-@{property}: #999;
+}

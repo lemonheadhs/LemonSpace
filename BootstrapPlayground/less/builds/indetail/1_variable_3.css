@@ -1,0 +1,18 @@
+b.msg {
+  content: "I am fnord1.";
+}
+.lazy-eval {
+  width: 9%;
+}
+.lazy-eval-scope {
+  width: 9%;
+}
+.latter-wins {
+  one: 1;
+}
+.latter-wins .inner {
+  three: 3;
+}
+.defaultVariable {
+  color: #cc0000;
+}

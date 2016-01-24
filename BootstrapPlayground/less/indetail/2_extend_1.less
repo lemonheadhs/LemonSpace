@@ -1,0 +1,28 @@
+nav ul {
+    &:extend(.inline);
+    background: blue;
+}
+.inline {
+    color: red;
+}
+
+// Syntax
+//   1.
+.a:extend(.b){}
+.a {
+    &:extend(.b);
+}    // the above 2 blocks do the same thing
+
+//   2.
+.c:extend(.d all) {
+    //extends all instances of ".d" e.g. ".x.d" or ".d.x"
+}
+.c:extend(.d) {
+    //extends only instances where the selector will be output as just ".d"
+}
+
+//   3.
+.e:extend(.f) {}
+.e:extend(.g) {}
+
+.e:extend(.f, .g){} // an equivalent form of multi-extend as the above blocks 
