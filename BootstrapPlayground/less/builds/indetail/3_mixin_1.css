@@ -1,0 +1,17 @@
+.a,
+#b {
+  color: red;
+}
+.mixin-class {
+  color: red;
+}
+.mixin-id {
+  color: red;
+}
+.my-mixin {
+  color: black;
+}
+.class {
+  color: black;
+  background-color: white;
+}

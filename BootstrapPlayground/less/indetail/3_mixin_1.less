@@ -1,0 +1,22 @@
+// basic 
+.a, #b {
+    color: red;
+}
+.mixin-class {
+    .a(); // these parentheses are optional
+}
+.mixin-id {
+    #b();
+}
+
+// not outputting the mixin
+.my-mixin {
+    color: black;
+}
+.my-other-mixin() {
+    background-color: white;
+}
+.class {
+    .my-mixin;
+    .my-other-mixin;
+}

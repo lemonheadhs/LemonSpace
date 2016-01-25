@@ -23,3 +23,14 @@
     color: blue;
 }
 .test:extend(.class){}// this will not match the any selectors above
+
+*.class {// *.class and .class are equivalent,but extend will not match them
+    color: blue;
+}
+.noStar:extend(.class){}//this will not match *.class selector
+
+link:hover:visited {
+    color: blue;
+}
+.selector:extend(link:visited:hover){}//will not match the above selector
+
